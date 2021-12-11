@@ -8,7 +8,7 @@ public static class WebApplicationExtensions
     public static void MapEndpoints(this WebApplication app)
         => MapEndpoints(app, Assembly.GetCallingAssembly());
 
-    public static void MapEndpoints<T>(this WebApplication app) where T : class
+    public static void MapEndpointsFromAssemblyContaining<T>(this WebApplication app) where T : class
         => MapEndpoints(app, typeof(T).Assembly);
 
     public static void MapEndpoints(this WebApplication app, Assembly assembly)
