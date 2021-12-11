@@ -1,7 +1,8 @@
 # Minimal APIs Endpoints Registration Helper
 
 [![GitHub Super-Linter](https://github.com/marcominerva/MinimalHelpers.Registration/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
-[![NuGet version (MinimalHelpers.Registration)](https://img.shields.io/nuget/v/MinimalHelpers.Registration.svg?style=flat-square)](https://www.nuget.org/packages/MinimalHelpers.Registration)
+[![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Registration)](https://www.nuget.org/packages/TinyHelpers)
+[![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Registration)](https://www.nuget.org/packages/TinyHelpers)
 
 A lightweight library to automatically register all the Route Endpoints of a Minimal API project.
 
@@ -38,7 +39,7 @@ Call the `MapEndpoints()` extension method on the **WebApplication** object insi
 
 By default, `MapEnpoints()` will scan the calling Assembly to search for classes that implement the `IRouteEndpointHandler` interface. If your route handlers are defined in another Assembly, you have two alternatives:
 
-- use the `MapEndpoints()` overload that takes the Assembly to scan as argument
+- Use the `MapEndpoints()` overload that takes the Assembly to scan as argument
 - Use the `MapEndpointsFromAssemblyContaining<T>()` extension method and specify a type that is contained in the Assembly you want to scan
 
 **Contribute**
