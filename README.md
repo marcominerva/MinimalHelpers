@@ -7,7 +7,7 @@ A lightweight library to automatically register all the Route Endpoints of a Min
 
 **Installation**
 
-The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Registration). Just search *MinimalHelpers.Registration* in the **Package Manager GUI** or run the following command in the **Package Manager Console**:    
+The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Registration). Just search *MinimalHelpers.Registration* in the **Package Manager GUI** or run the following command in the **Package Manager Console**:Â Â  
 
     Install-Package MinimalHelpers.Registration
 
