@@ -1,19 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Authors>Marco Minerva</Authors>
+		<Company>Marco Minerva</Company>
+		<Product>Registration Helper for Minimal APIs</Product>
+		<Title>Registration Helper for Minimal APIs</Title>
+		<Description>A lightweight library to automatically register all the Route Endpoints of a Minimal API project.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/marcominerva/MinimalHelpers.Registration</PackageProjectUrl>
+		<PackageIcon>Toolbox.png</PackageIcon>
+		<PackageTags>csharp visual-studio aspnetcore minimalapi utilities helpers</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/marcominerva/MinimalHelpers.Registration.git</RepositoryUrl>
+		<RepositoryBranch>master</RepositoryBranch>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Nerdbank.GitVersioning" Version="3.4.244">
-	    <PrivateAssets>all</PrivateAssets>
-	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	  </PackageReference>
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.4.244">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\Toolbox.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
 	</ItemGroup>
 </Project>

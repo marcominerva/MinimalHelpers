@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "WebApplication1": {
+    "MinimalSample": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

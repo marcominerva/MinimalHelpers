@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Routing;
 
-namespace MinimalRegistration;
+namespace MinimalHelpers.Registration;
 
 public interface IRouteEndpointHandler
 {
