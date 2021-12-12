@@ -18,4 +18,15 @@ app.UseHttpsRedirection();
 
 app.MapEndpoints();
 
+// You can further decide what types to map by using a predicate:
+//app.MapEndpoints(type =>
+//{
+//    if (type.Name.StartsWith("Products"))
+//    {
+//        return false;
+//    }
+
+//    return true;
+//});
+
 app.Run();

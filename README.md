@@ -14,9 +14,9 @@ The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelper
 
 **Usage**
 
-Create a class to hold your route handlers and make it implementing the `IRouteEndpointHandler` interface:
+Create a class to hold your route handlers and make it implementing the `IEndpointRouteHandler` interface:
 
-    public class PeopleHandler : MinimalHelpers.Registration.IRouteEndpointHandler
+    public class PeopleHandler : MinimalHelpers.Registration.IEndpointRouteHandler
     {
         public void Map(IEndpointRouteBuilder app)
         {
@@ -37,10 +37,22 @@ Call the `MapEndpoints()` extension method on the **WebApplication** object insi
 
     app.Run();
 
-By default, `MapEnpoints()` will scan the calling Assembly to search for classes that implement the `IRouteEndpointHandler` interface. If your route handlers are defined in another Assembly, you have two alternatives:
+By default, `MapEnpoints()` will scan the calling Assembly to search for classes that implement the `IEndpointRouteHandler` interface. If your route handlers are defined in another Assembly, you have two alternatives:
 
 - Use the `MapEndpoints()` overload that takes the Assembly to scan as argument
 - Use the `MapEndpointsFromAssemblyContaining<T>()` extension method and specify a type that is contained in the Assembly you want to scan
+
+You can also explicitly decide what types (among the ones that implement the `IRouteEndpointHandler` interface) do you want to actually map, by passing a predicate to the `MapEndpoints` method:
+
+    app.MapEndpoints(type =>
+    {
+        if (type.Name.StartsWith("Products"))
+        {
+            return false;
+        }
+
+        return true;
+    });
 
 **Contribute**
 
