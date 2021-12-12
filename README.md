@@ -42,7 +42,7 @@ By default, `MapEnpoints()` will scan the calling Assembly to search for classes
 - Use the `MapEndpoints()` overload that takes the Assembly to scan as argument
 - Use the `MapEndpointsFromAssemblyContaining<T>()` extension method and specify a type that is contained in the Assembly you want to scan
 
-You can also explicitly decide what types (among the ones that implement the `IRouteEndpointHandler` interface) do you want to actually map, by passing a predicate to the `MapEndpoints` method:
+You can also explicitly decide what types (among the ones that implement the `IRouteEndpointHandler` interface) you want to actually map, passing a predicate to the `MapEndpoints` method:
 
     app.MapEndpoints(type =>
     {
