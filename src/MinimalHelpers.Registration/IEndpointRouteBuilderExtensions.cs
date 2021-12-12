@@ -8,9 +8,6 @@ public static class IEndpointRouteBuilderExtensions
     public static void MapEndpoints(this IEndpointRouteBuilder app, Func<Type, bool>? predicate = null)
         => MapEndpoints(app, Assembly.GetCallingAssembly(), predicate);
 
-    public static void MapEndpointsFromAssemblyContaining<T>(this IEndpointRouteBuilder app, Func<Type, bool>? predicate = null) where T : class
-        => MapEndpoints(app, typeof(T).Assembly, predicate);
-
     public static void MapEndpoints(this IEndpointRouteBuilder app, Assembly assembly, Func<Type, bool>? predicate = null)
     {
         ArgumentNullException.ThrowIfNull(app);
@@ -31,4 +28,7 @@ public static class IEndpointRouteBuilderExtensions
             instantiatedType.Map(app);
         }
     }
+
+    public static void MapEndpointsFromAssemblyContaining<T>(this IEndpointRouteBuilder app, Func<Type, bool>? predicate = null) where T : class
+        => MapEndpoints(app, typeof(T).Assembly, predicate);
 }
