@@ -1,8 +1,8 @@
 # Minimal APIs Endpoints Registration Helper
 
 [![GitHub Super-Linter](https://github.com/marcominerva/MinimalHelpers.Registration/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
-[![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Registration)](https://www.nuget.org/packages/TinyHelpers)
-[![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Registration)](https://www.nuget.org/packages/TinyHelpers)
+[![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Registration)](https://www.nuget.org/packages/MinimalHelpers.Registration)
+[![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Registration)](https://www.nuget.org/packages/MinimalHelpers.Registration)
 
 A lightweight library to automatically register all the Route Endpoints of a Minimal API project.
 
