@@ -2,7 +2,7 @@
 
 namespace MinimalSample.Handlers;
 
-public class ProductsHandler : IRouteEndpointHandler
+public class ProductsHandler : IEndpointRouteHandler
 {
     public void Map(IEndpointRouteBuilder app)
     {

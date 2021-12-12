@@ -2,7 +2,7 @@
 
 namespace MinimalSample.Handlers;
 
-public class PeopleHandler : IRouteEndpointHandler
+public class PeopleHandler : IEndpointRouteHandler
 {
     public void Map(IEndpointRouteBuilder app)
     {

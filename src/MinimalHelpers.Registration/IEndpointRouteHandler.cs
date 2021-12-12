@@ -2,7 +2,7 @@
 
 namespace MinimalHelpers.Registration;
 
-public interface IRouteEndpointHandler
+public interface IEndpointRouteHandler
 {
     public void Map(IEndpointRouteBuilder app);
 }

@@ -1,4 +1,5 @@
 using MinimalHelpers.Registration;
+using MinimalSample.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,5 +18,18 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapEndpoints();
+
+app.MapEndpointsFromAssemblyContaining<SuppliersHandler>();
+
+// You can further decide what types to map using a predicate:
+//app.MapEndpoints(type =>
+//{
+//    if (type.Name.StartsWith("Products"))
+//    {
+//        return false;
+//    }
+
+//    return true;
+//});
 
 app.Run();
