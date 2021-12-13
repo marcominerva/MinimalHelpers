@@ -56,4 +56,4 @@ You can also explicitly decide what types (among the ones that implement the `IR
 
 **Contribute**
 
-The project is continually evolving. We welcome contributions. Feel free to file issues and pull requests on the repo and we'll address them as we can. 
+The project is constantly evolving. Contributions are welcome. Feel free to file issues and pull requests on the repo and we'll address them as we can. 
