@@ -7,13 +7,13 @@ namespace MinimalSample.Handlers;
 
 public class SuppliersHandler : IEndpointRouteHandler
 {
-    public void Map(IEndpointRouteBuilder app)
+    public void Map(IEndpointRouteBuilder endpoints)
     {
-        app.MapGet("/api/suppliers", GetList);
-        app.MapGet("/api/suppliers/{id:guid}", Get);
-        app.MapPost("/api/suppliers", Insert);
-        app.MapPut("/api/suppliers/{id:guid}", Update);
-        app.MapDelete("/api/suppliers/{id:guid}", Delete);
+        endpoints.MapGet("/api/suppliers", GetList);
+        endpoints.MapGet("/api/suppliers/{id:guid}", Get);
+        endpoints.MapPost("/api/suppliers", Insert);
+        endpoints.MapPut("/api/suppliers/{id:guid}", Update);
+        endpoints.MapDelete("/api/suppliers/{id:guid}", Delete);
     }
 
     private static IResult GetList() => Results.NoContent();

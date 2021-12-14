@@ -3,14 +3,29 @@ using Microsoft.AspNetCore.Routing;
 
 namespace MinimalHelpers.Registration;
 
+/// <summary>
+/// Provides extension methods for <see cref="IEndpointRouteHandler" /> to add route handlers.
+/// </summary>
+/// <seealso cref="IEndpointRouteBuilder" />
 public static class IEndpointRouteBuilderExtensions
 {
-    public static void MapEndpoints(this IEndpointRouteBuilder app, Func<Type, bool>? predicate = null)
-        => MapEndpoints(app, Assembly.GetCallingAssembly(), predicate);
+    /// <summary>
+    /// Scans the calling <see cref="Assembly"/> to search for classes that implement the <see cref="IEndpointRouteHandler "/> interface and automatically register all their route endpoints.
+    /// </summary>
+    /// <param name="endpoints">The <see cref="IEndpointRouteBuilder" /> to add routes to.</param>
+    /// <param name="predicate">A function to test each class type for a condition.</param>    
+    public static void MapEndpoints(this IEndpointRouteBuilder endpoints, Func<Type, bool>? predicate = null)
+        => MapEndpoints(endpoints, Assembly.GetCallingAssembly(), predicate);
 
-    public static void MapEndpoints(this IEndpointRouteBuilder app, Assembly assembly, Func<Type, bool>? predicate = null)
+    /// <summary>
+    /// Scans the specified <see cref="Assembly"/> to search for classes that implement the <see cref="IEndpointRouteHandler "/> interface and automatically register all their route endpoints.
+    /// </summary>
+    /// <param name="endpoints">The <see cref="IEndpointRouteBuilder" /> to add routes to.</param>
+    /// <param name="assembly">The <see cref="Assembly"/> to scan.</param>
+    /// <param name="predicate">A function to test each class type for a condition.</param>   
+    public static void MapEndpoints(this IEndpointRouteBuilder endpoints, Assembly assembly, Func<Type, bool>? predicate = null)
     {
-        ArgumentNullException.ThrowIfNull(app);
+        ArgumentNullException.ThrowIfNull(endpoints);
         ArgumentNullException.ThrowIfNull(assembly);
 
         var endpointRouteHandlerInterfaceType = typeof(IEndpointRouteHandler);
@@ -23,12 +38,16 @@ public static class IEndpointRouteBuilderExtensions
 
         foreach (var endpointRouteHandlerType in endpointRouteHandlerTypes)
         {
-            var instantiatedType = (IEndpointRouteHandler)
-                Activator.CreateInstance(endpointRouteHandlerType)!;
-            instantiatedType.Map(app);
+            var instantiatedType = (IEndpointRouteHandler)Activator.CreateInstance(endpointRouteHandlerType)!;
+            instantiatedType.Map(endpoints);
         }
     }
 
-    public static void MapEndpointsFromAssemblyContaining<T>(this IEndpointRouteBuilder app, Func<Type, bool>? predicate = null) where T : class
-        => MapEndpoints(app, typeof(T).Assembly, predicate);
+    /// <summary>
+    /// Scans the <see cref="Assembly"/> that contains the specified type to search for classes that implement the <see cref="IEndpointRouteHandler "/> interface and automatically register all their route endpoints.
+    /// </summary>
+    /// <param name="endpoints">The <see cref="IEndpointRouteBuilder" /> to add routes to.</param>
+    /// <param name="predicate">A function to test each class type for a condition.</param>   
+    public static void MapEndpointsFromAssemblyContaining<T>(this IEndpointRouteBuilder endpoints, Func<Type, bool>? predicate = null) where T : class
+        => MapEndpoints(endpoints, typeof(T).Assembly, predicate);
 }
