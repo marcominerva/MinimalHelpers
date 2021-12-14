@@ -4,13 +4,13 @@ namespace MinimalSample.Handlers;
 
 public class ProductsHandler : IEndpointRouteHandler
 {
-    public void Map(IEndpointRouteBuilder app)
+    public void Map(IEndpointRouteBuilder endpoints)
     {
-        app.MapGet("/api/products", GetList);
-        app.MapGet("/api/products/{id:guid}", Get);
-        app.MapPost("/api/products", Insert);
-        app.MapPut("/api/products/{id:guid}", Update);
-        app.MapDelete("/api/products/{id:guid}", Delete);
+        endpoints.MapGet("/api/products", GetList);
+        endpoints.MapGet("/api/products/{id:guid}", Get);
+        endpoints.MapPost("/api/products", Insert);
+        endpoints.MapPut("/api/products/{id:guid}", Update);
+        endpoints.MapDelete("/api/products/{id:guid}", Delete);
     }
 
     private static IResult GetList() => Results.NoContent();

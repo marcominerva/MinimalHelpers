@@ -2,7 +2,16 @@
 
 namespace MinimalHelpers.Registration;
 
+/// <summary>
+/// Defines a contract for a class that holds one or more route handlers that must be registered by the application.
+/// </summary>
+/// <seealso cref="IEndpointRouteBuilder" />
+/// <seealso cref="IEndpointRouteBuilderExtensions" />
 public interface IEndpointRouteHandler
 {
-    public void Map(IEndpointRouteBuilder app);
+    /// <summary>
+    /// Maps route endpoints to the corresponding handlers.
+    /// </summary>
+    /// <param name="endpoints">The <see cref="IEndpointRouteBuilder" /> to add routes to.</param>
+    public void Map(IEndpointRouteBuilder endpoints);
 }

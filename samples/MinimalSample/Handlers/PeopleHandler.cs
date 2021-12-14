@@ -4,13 +4,13 @@ namespace MinimalSample.Handlers;
 
 public class PeopleHandler : IEndpointRouteHandler
 {
-    public void Map(IEndpointRouteBuilder app)
+    public void Map(IEndpointRouteBuilder endpoints)
     {
-        app.MapGet("/api/people", GetList);
-        app.MapGet("/api/people/{id:guid}", Get);
-        app.MapPost("/api/people", Insert);
-        app.MapPut("/api/people/{id:guid}", Update);
-        app.MapDelete("/api/people/{id:guid}", Delete);
+        endpoints.MapGet("/api/people", GetList);
+        endpoints.MapGet("/api/people/{id:guid}", Get);
+        endpoints.MapPost("/api/people", Insert);
+        endpoints.MapPut("/api/people/{id:guid}", Update);
+        endpoints.MapDelete("/api/people/{id:guid}", Delete);
     }
 
     private static IResult GetList() => Results.NoContent();

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MinimalHelpers.Registration</name>
+    </assembly>
+    <members>
+        <member name="T:MinimalHelpers.Registration.IEndpointRouteBuilderExtensions">
+            <summary>
+            Provides extension methods for <see cref="T:MinimalHelpers.Registration.IEndpointRouteHandler" /> to add route handlers.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" />
+        </member>
+        <member name="M:MinimalHelpers.Registration.IEndpointRouteBuilderExtensions.MapEndpoints(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Scans the calling <see cref="T:System.Reflection.Assembly"/> to search for classes that implement the <see cref="T:MinimalHelpers.Registration.IEndpointRouteHandler"/> interface and automatically register all their route endpoints.
+            </summary>
+            <param name="endpoints">The <see cref="T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" /> to add routes to.</param>
+            <param name="predicate">A function to test each class type for a condition.</param>    
+        </member>
+        <member name="M:MinimalHelpers.Registration.IEndpointRouteBuilderExtensions.MapEndpoints(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.Reflection.Assembly,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Scans the specified <see cref="T:System.Reflection.Assembly"/> to search for classes that implement the <see cref="T:MinimalHelpers.Registration.IEndpointRouteHandler"/> interface and automatically register all their route endpoints.
+            </summary>
+            <param name="endpoints">The <see cref="T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" /> to add routes to.</param>
+            <param name="assembly">The <see cref="T:System.Reflection.Assembly"/> to scan.</param>
+            <param name="predicate">A function to test each class type for a condition.</param>   
+        </member>
+        <member name="M:MinimalHelpers.Registration.IEndpointRouteBuilderExtensions.MapEndpointsFromAssemblyContaining``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Scans the <see cref="T:System.Reflection.Assembly"/> that contains the specified type to search for classes that implement the <see cref="T:MinimalHelpers.Registration.IEndpointRouteHandler"/> interface and automatically register all their route endpoints.
+            </summary>
+            <param name="endpoints">The <see cref="T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" /> to add routes to.</param>
+            <param name="predicate">A function to test each class type for a condition.</param>   
+        </member>
+        <member name="T:MinimalHelpers.Registration.IEndpointRouteHandler">
+            <summary>
+            Defines a contract for a class that holds one or more route handlers that must be registered by the application.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" />
+            <seealso cref="T:MinimalHelpers.Registration.IEndpointRouteBuilderExtensions" />
+        </member>
+        <member name="M:MinimalHelpers.Registration.IEndpointRouteHandler.Map(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+            Maps route endpoints to the corresponding handlers.
+            </summary>
+            <param name="endpoints">The <see cref="T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" /> to add routes to.</param>
+        </member>
+    </members>
+</doc>
