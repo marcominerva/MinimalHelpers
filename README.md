@@ -18,13 +18,13 @@ Create a class to hold your route handlers and make it implementing the `IEndpoi
 
     public class PeopleHandler : MinimalHelpers.Registration.IEndpointRouteHandler
     {
-        public void Map(IEndpointRouteBuilder app)
+        public void Map(IEndpointRouteBuilder endpoints)
         {
-            app.MapGet("/api/people", GetList);
-            app.MapGet("/api/people/{id:guid}", Get);
-            app.MapPost("/api/people", Insert);
-            app.MapPut("/api/people/{id:guid}", Update);
-            app.MapDelete("/api/people/{id:guid}", Delete);
+            endpoints.MapGet("/api/people", GetList);
+            endpoints.MapGet("/api/people/{id:guid}", Get);
+            endpoints.MapPost("/api/people", Insert);
+            endpoints.MapPut("/api/people/{id:guid}", Update);
+            endpoints.MapDelete("/api/people/{id:guid}", Delete);
         }
 
         // ...
