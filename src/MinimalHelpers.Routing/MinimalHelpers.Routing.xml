@@ -39,7 +39,7 @@
             <seealso cref="T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" />
             <seealso cref="T:MinimalHelpers.Routing.IEndpointRouteBuilderExtensions" />
         </member>
-        <member name="M:MinimalHelpers.Routing.IEndpointRouteHandler.Map(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+        <member name="M:MinimalHelpers.Routing.IEndpointRouteHandler.MapEndpoints(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
             <summary>
             Maps route endpoints to the corresponding handlers.
             </summary>
