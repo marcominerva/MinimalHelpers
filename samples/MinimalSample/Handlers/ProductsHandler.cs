@@ -4,7 +4,7 @@ namespace MinimalSample.Handlers;
 
 public class ProductsHandler : IEndpointRouteHandler
 {
-    public void Map(IEndpointRouteBuilder endpoints)
+    public void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
         endpoints.MapGet("/api/products", GetList);
         endpoints.MapGet("/api/products/{id:guid}", Get);

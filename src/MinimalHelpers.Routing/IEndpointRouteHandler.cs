@@ -13,5 +13,5 @@ public interface IEndpointRouteHandler
     /// Maps route endpoints to the corresponding handlers.
     /// </summary>
     /// <param name="endpoints">The <see cref="IEndpointRouteBuilder" /> to add routes to.</param>
-    public void Map(IEndpointRouteBuilder endpoints);
+    public void MapEndpoints(IEndpointRouteBuilder endpoints);
 }
