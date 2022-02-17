@@ -8,8 +8,8 @@ on:
 
 env:
   NET_VERSION: '6.x'
-  PROJECT_NAME: src/MinimalHelpers.Registration 
-  PROJECT_FILE: MinimalHelpers.Registration.csproj  
+  PROJECT_NAME: src/MinimalHelpers.Routing 
+  PROJECT_FILE: MinimalHelpers.Routing.csproj  
   
 jobs:
   build:

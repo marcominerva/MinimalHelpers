@@ -5,24 +5,24 @@
 		<LangVersion>latest</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<DocumentationFile>MinimalHelpers.Registration.xml</DocumentationFile>
+		<DocumentationFile>MinimalHelpers.Routing.xml</DocumentationFile>
 		<Authors>Marco Minerva</Authors>
 		<Company>Marco Minerva</Company>
-		<Product>Registration Helper for Minimal APIs</Product>
-		<Title>Registration Helper for Minimal APIs</Title>
-		<Description>A lightweight library to automatically register all the Route Endpoints of a Minimal API project.</Description>
+		<Product>Routing Helpers for Minimal APIs</Product>
+		<Title>Routing Helpers for Minimal APIs</Title>
+		<Description>A library that provides Routing helpers for Minimal APIs project.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/marcominerva/MinimalHelpers.Registration</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/marcominerva/MinimalHelpers.Routing</PackageProjectUrl>
 		<PackageIcon>Toolbox.png</PackageIcon>
-		<PackageTags>csharp visual-studio aspnetcore minimalapi utilities helpers</PackageTags>
+		<PackageTags>csharp visual-studio aspnetcore minimalapi routing utilities helpers</PackageTags>
 		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/marcominerva/MinimalHelpers.Registration.git</RepositoryUrl>
+		<RepositoryUrl>https://github.com/marcominerva/MinimalHelpers.Routing.git</RepositoryUrl>
 		<RepositoryBranch>master</RepositoryBranch>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="MinimalHelpers.Registration.xml" />
+		<None Remove="MinimalHelpers.Routing.xml" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,10 +1,10 @@
-﻿using MinimalHelpers.Registration;
+﻿using MinimalHelpers.Routing;
 
 namespace MinimalSample.Handlers;
 
 public class ProductsHandler : IEndpointRouteHandler
 {
-    public void Map(IEndpointRouteBuilder endpoints)
+    public void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
         endpoints.MapGet("/api/products", GetList);
         endpoints.MapGet("/api/products/{id:guid}", Get);
@@ -25,4 +25,3 @@ public class ProductsHandler : IEndpointRouteHandler
 }
 
 public record Product(string Name, string Description, double UnitPrice);
-

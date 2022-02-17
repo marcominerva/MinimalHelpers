@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.AspNetCore.Routing;
 
-namespace MinimalHelpers.Registration;
+namespace MinimalHelpers.Routing;
 
 /// <summary>
 /// Provides extension methods for <see cref="IEndpointRouteHandler" /> to add route handlers.
@@ -39,7 +39,7 @@ public static class IEndpointRouteBuilderExtensions
         foreach (var endpointRouteHandlerType in endpointRouteHandlerTypes)
         {
             var instantiatedType = (IEndpointRouteHandler)Activator.CreateInstance(endpointRouteHandlerType)!;
-            instantiatedType.Map(endpoints);
+            instantiatedType.MapEndpoints(endpoints);
         }
     }
 

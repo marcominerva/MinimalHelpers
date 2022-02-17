@@ -1,10 +1,10 @@
-﻿using MinimalHelpers.Registration;
+﻿using MinimalHelpers.Routing;
 
 namespace MinimalSample.Handlers;
 
 public class PeopleHandler : IEndpointRouteHandler
 {
-    public void Map(IEndpointRouteBuilder endpoints)
+    public void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
         endpoints.MapGet("/api/people", GetList);
         endpoints.MapGet("/api/people/{id:guid}", Get);
@@ -25,4 +25,3 @@ public class PeopleHandler : IEndpointRouteHandler
 }
 
 public record Person(string FirstName, string LastName);
-

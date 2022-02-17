@@ -1,24 +1,26 @@
-# Minimal APIs Endpoints Registration Helper
+# Minimal APIs Routing Helpers
 
-[![GitHub Super-Linter](https://github.com/marcominerva/MinimalHelpers.Registration/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
-[![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Registration)](https://www.nuget.org/packages/MinimalHelpers.Registration)
-[![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Registration)](https://www.nuget.org/packages/MinimalHelpers.Registration)
+[![GitHub Super-Linter](https://github.com/marcominerva/MinimalHelpers.Routing/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Routing)](https://www.nuget.org/packages/MinimalHelpers.Routing)
+[![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Routing)](https://www.nuget.org/packages/MinimalHelpers.Routing)
 
-A lightweight library to automatically register all the Route Endpoints of a Minimal API project.
+A library that provides Routing helpers for Minimal APIs project.
 
 **Installation**
 
-The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Registration). Just search *MinimalHelpers.Registration* in the **Package Manager GUI** or run the following command in the **Package Manager Console**:
+The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Routing). Just search *MinimalHelpers.Routing* in the **Package Manager GUI** or run the following command in the **Package Manager Console**:
 
-    Install-Package MinimalHelpers.Registration
+    Install-Package MinimalHelpers.Routing
 
 **Usage**
 
+***Automatic Route Endpoints registration***
+
 Create a class to hold your route handlers and make it implementing the `IEndpointRouteHandler` interface:
 
-    public class PeopleHandler : MinimalHelpers.Registration.IEndpointRouteHandler
+    public class PeopleHandler : MinimalHelpers.Routing.IEndpointRouteHandler
     {
-        public void Map(IEndpointRouteBuilder endpoints)
+        public void MapEndpoints(IEndpointRouteBuilder endpoints)
         {
             endpoints.MapGet("/api/people", GetList);
             endpoints.MapGet("/api/people/{id:guid}", Get);
@@ -32,7 +34,7 @@ Create a class to hold your route handlers and make it implementing the `IEndpoi
 
 Call the `MapEndpoints()` extension method on the **WebApplication** object inside *Program.cs* before the `Run()` method invocation:
 
-    // using MinimalHelpers.Registration;
+    // using MinimalHelpers.Routing;
     app.MapEndpoints();
 
     app.Run();

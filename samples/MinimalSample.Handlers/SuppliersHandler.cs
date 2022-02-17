@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using MinimalHelpers.Registration;
+using MinimalHelpers.Routing;
 
 namespace MinimalSample.Handlers;
 
 public class SuppliersHandler : IEndpointRouteHandler
 {
-    public void Map(IEndpointRouteBuilder endpoints)
+    public void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
         endpoints.MapGet("/api/suppliers", GetList);
         endpoints.MapGet("/api/suppliers/{id:guid}", Get);
