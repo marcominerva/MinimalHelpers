@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Routing;
 
-namespace MinimalHelpers.Registration;
+namespace MinimalHelpers.Routing;
 
 /// <summary>
 /// Defines a contract for a class that holds one or more route handlers that must be registered by the application.

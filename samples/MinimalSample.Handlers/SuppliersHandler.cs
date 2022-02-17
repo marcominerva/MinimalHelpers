@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using MinimalHelpers.Registration;
+using MinimalHelpers.Routing;
 
 namespace MinimalSample.Handlers;
 

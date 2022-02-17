@@ -1,4 +1,4 @@
-﻿using MinimalHelpers.Registration;
+﻿using MinimalHelpers.Routing;
 
 namespace MinimalSample.Handlers;
 
@@ -25,4 +25,3 @@ public class ProductsHandler : IEndpointRouteHandler
 }
 
 public record Product(string Name, string Description, double UnitPrice);
-

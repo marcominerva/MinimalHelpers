@@ -1,4 +1,4 @@
-using MinimalHelpers.Registration;
+using MinimalHelpers.Routing;
 using MinimalSample.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);

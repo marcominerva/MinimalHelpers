@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalSample", "samples\MinimalSample\MinimalSample.csproj", "{E2C81EC8-A32D-4241-9661-DE2A97E9798F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHelpers.Registration", "src\MinimalHelpers.Registration\MinimalHelpers.Registration.csproj", "{6220D0C3-50AD-4C4B-9EDC-49B9F5AF0668}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHelpers.Routing", "src\MinimalHelpers.Routing\MinimalHelpers.Routing.csproj", "{6220D0C3-50AD-4C4B-9EDC-49B9F5AF0668}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{89B521CC-30D2-4BCD-A649-34B6098CC92F}"
 	ProjectSection(SolutionItems) = preProject

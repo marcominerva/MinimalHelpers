@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.AspNetCore.Routing;
 
-namespace MinimalHelpers.Registration;
+namespace MinimalHelpers.Routing;
 
 /// <summary>
 /// Provides extension methods for <see cref="IEndpointRouteHandler" /> to add route handlers.

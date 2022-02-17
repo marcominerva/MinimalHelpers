@@ -1,4 +1,4 @@
-﻿using MinimalHelpers.Registration;
+﻿using MinimalHelpers.Routing;
 
 namespace MinimalSample.Handlers;
 
@@ -25,4 +25,3 @@ public class PeopleHandler : IEndpointRouteHandler
 }
 
 public record Person(string FirstName, string LastName);
-
