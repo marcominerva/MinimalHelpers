@@ -10,7 +10,7 @@
 		<Company>Marco Minerva</Company>
 		<Product>Routing Helpers for Minimal APIs</Product>
 		<Title>Routing Helpers for Minimal APIs</Title>
-		<Description>A library that provides Routing helpers for Minimal APIs project.</Description>
+		<Description>A library that provides Routing helpers for Minimal APIs project</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/marcominerva/MinimalHelpers.Routing</PackageProjectUrl>
 		<PackageIcon>Toolbox.png</PackageIcon>
