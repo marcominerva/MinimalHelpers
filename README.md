@@ -4,7 +4,7 @@
 [![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Routing)](https://www.nuget.org/packages/MinimalHelpers.Routing)
 [![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Routing)](https://www.nuget.org/packages/MinimalHelpers.Routing)
 
-A library that provides Routing helpers for Minimal APIs project.
+A library that provides Routing helpers for Minimal API projects.
 
 **Installation**
 
