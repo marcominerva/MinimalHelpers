@@ -24,4 +24,4 @@ public class PeopleHandler : IEndpointRouteHandler
     private static IResult Delete(Guid id) => Results.NoContent();
 }
 
-public record Person(string FirstName, string LastName);
+public record class Person(string FirstName, string LastName);

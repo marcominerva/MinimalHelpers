@@ -27,4 +27,4 @@ public class SuppliersHandler : IEndpointRouteHandler
     private static IResult Delete(Guid id) => Results.NoContent();
 }
 
-public record Supplier(string Name);
+public record class Supplier(string Name);

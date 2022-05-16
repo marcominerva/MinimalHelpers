@@ -38,8 +38,8 @@ public static class IEndpointRouteBuilderExtensions
 
         foreach (var endpointRouteHandlerType in endpointRouteHandlerTypes)
         {
-            var instantiatedType = (IEndpointRouteHandler)Activator.CreateInstance(endpointRouteHandlerType)!;
-            instantiatedType.MapEndpoints(endpoints);
+            var handler = (IEndpointRouteHandler)Activator.CreateInstance(endpointRouteHandlerType)!;
+            handler.MapEndpoints(endpoints);
         }
     }
 

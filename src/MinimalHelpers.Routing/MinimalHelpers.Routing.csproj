@@ -10,7 +10,7 @@
 		<Company>Marco Minerva</Company>
 		<Product>Routing Helpers for Minimal APIs</Product>
 		<Title>Routing Helpers for Minimal APIs</Title>
-		<Description>A library that provides Routing helpers for Minimal APIs project.</Description>
+		<Description>A library that provides Routing helpers for Minimal API projects</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/marcominerva/MinimalHelpers.Routing</PackageProjectUrl>
 		<PackageIcon>Toolbox.png</PackageIcon>
@@ -30,7 +30,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.4.244">
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.5.104">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
