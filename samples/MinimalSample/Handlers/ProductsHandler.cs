@@ -24,4 +24,4 @@ public class ProductsHandler : IEndpointRouteHandler
     private static IResult Delete(Guid id) => Results.NoContent();
 }
 
-public record Product(string Name, string Description, double UnitPrice);
+public record class Product(string Name, string Description, double UnitPrice);
