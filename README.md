@@ -1,10 +1,11 @@
 # Minimal APIs Routing Helpers
 
-[![GitHub Super-Linter](https://github.com/marcominerva/MinimalHelpers.Routing/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Lint Code Base](https://github.com/marcominerva/MinimalHelpers.Routing/actions/workflows/linter.yml/badge.svg)](https://github.com/marcominerva/MinimalHelpers.Routing/actions/workflows/linter.yml)
 [![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Routing)](https://www.nuget.org/packages/MinimalHelpers.Routing)
 [![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Routing)](https://www.nuget.org/packages/MinimalHelpers.Routing)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/marcominerva/MinimalHelpers.Routing/blob/master/LICENSE)
 
-A library that provides Routing helpers for Minimal API projects.
+A library that provides Routing helpers for Minimal API projects, mainly for automatic endpoints registration.
 
 **Installation**
 
