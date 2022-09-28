@@ -17,8 +17,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Maps all the endpoints within this Assembly.
 app.MapEndpoints();
 
+// Maps all the endpoints within the same Assembly of the specified type.
 app.MapEndpointsFromAssemblyContaining<SuppliersHandler>();
 
 // You can further decide what types to map using a predicate:

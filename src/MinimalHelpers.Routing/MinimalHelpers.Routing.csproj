@@ -1,46 +1,57 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
-		<LangVersion>latest</LangVersion>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<DocumentationFile>MinimalHelpers.Routing.xml</DocumentationFile>
-		<Authors>Marco Minerva</Authors>
-		<Company>Marco Minerva</Company>
-		<Product>Routing Helpers for Minimal APIs</Product>
-		<Title>Routing Helpers for Minimal APIs</Title>
-		<Description>A library that provides Routing helpers for Minimal API projects</Description>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/marcominerva/MinimalHelpers.Routing</PackageProjectUrl>
-		<PackageIcon>Toolbox.png</PackageIcon>
-		<PackageTags>csharp visual-studio aspnetcore minimalapi routing utilities helpers</PackageTags>
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/marcominerva/MinimalHelpers.Routing.git</RepositoryUrl>
-		<RepositoryBranch>master</RepositoryBranch>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-	</PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DocumentationFile>MinimalHelpers.Routing.xml</DocumentationFile>
+        <Authors>Marco Minerva</Authors>
+        <Company>Marco Minerva</Company>
+        <Product>Routing Helpers for Minimal APIs</Product>
+        <Title>Routing Helpers for Minimal APIs</Title>
+        <Description>A library that provides Routing helpers for Minimal API projects, mainly for automatic endpoints registration</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/marcominerva/MinimalHelpers.Routing</PackageProjectUrl>
+        <PackageIcon>Toolbox.png</PackageIcon>
+        <PackageTags>csharp visual-studio aspnetcore minimalapi routing utilities helpers</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/marcominerva/MinimalHelpers.Routing.git</RepositoryUrl>
+        <RepositoryBranch>master</RepositoryBranch>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <DebugType>embedded</DebugType>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<None Remove="MinimalHelpers.Routing.xml" />
-	</ItemGroup>
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>
+    <ItemGroup>
+        <None Remove="MinimalHelpers.Routing.xml" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.5.108">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-	</ItemGroup>
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<None Include="..\..\Toolbox.png">
-			<Pack>True</Pack>
-			<PackagePath></PackagePath>
-		</None>
-		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Nerdbank.GitVersioning" Version="3.5.113">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\Toolbox.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
 </Project>
