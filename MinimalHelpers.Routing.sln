@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{89B521CC-30D2-4BCD-A649-34B6098CC92F}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		src\Directory.Build.props = src\Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalSample.Handlers", "samples\MinimalSample.Handlers\MinimalSample.Handlers.csproj", "{871982DC-EBA8-4BAE-A436-42C5E00E3BA1}"
