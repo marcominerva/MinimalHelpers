@@ -1,7 +1,7 @@
 # Minimal APIs Helpers
 
-[![Lint Code Base](https://github.com/marcominerva/MinimalHelpers.Routing/actions/workflows/linter.yml/badge.svg)](https://github.com/marcominerva/MinimalHelpers.Routing/actions/workflows/linter.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/marcominerva/MinimalHelpers.Routing/blob/master/LICENSE)
+[![Lint Code Base](https://github.com/marcominerva/MinimalHelpers/actions/workflows/linter.yml/badge.svg)](https://github.com/marcominerva/MinimalHelpers/actions/workflows/linter.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/marcominerva/MinimalHelpers/blob/master/LICENSE)
 
 A collection of helpers libraries for Minimal API projects.
 
