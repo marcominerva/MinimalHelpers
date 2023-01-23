@@ -13,15 +13,15 @@ public class ProductsHandler : IEndpointRouteHandler
         endpoints.MapDelete("/api/products/{id:guid}", Delete);
     }
 
-    private static IResult GetList() => Results.NoContent();
+    private static IResult GetList() => TypedResults.NoContent();
 
-    private static IResult Get(Guid id) => Results.NoContent();
+    private static IResult Get(Guid id) => TypedResults.NoContent();
 
-    private static IResult Insert(Product Person) => Results.NoContent();
+    private static IResult Insert(Product Person) => TypedResults.NoContent();
 
-    private static IResult Update(Product Person) => Results.NoContent();
+    private static IResult Update(Product Person) => TypedResults.NoContent();
 
-    private static IResult Delete(Guid id) => Results.NoContent();
+    private static IResult Delete(Guid id) => TypedResults.NoContent();
 }
 
 public record class Product(string Name, string Description, double UnitPrice);

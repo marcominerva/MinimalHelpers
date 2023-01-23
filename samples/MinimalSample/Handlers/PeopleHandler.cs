@@ -13,15 +13,15 @@ public class PeopleHandler : IEndpointRouteHandler
         endpoints.MapDelete("/api/people/{id:guid}", Delete);
     }
 
-    private static IResult GetList() => Results.NoContent();
+    private static IResult GetList() => TypedResults.NoContent();
 
-    private static IResult Get(Guid id) => Results.NoContent();
+    private static IResult Get(Guid id) => TypedResults.NoContent();
 
-    private static IResult Insert(Person Person) => Results.NoContent();
+    private static IResult Insert(Person Person) => TypedResults.NoContent();
 
-    private static IResult Update(Person Person) => Results.NoContent();
+    private static IResult Update(Person Person) => TypedResults.NoContent();
 
-    private static IResult Delete(Guid id) => Results.NoContent();
+    private static IResult Delete(Guid id) => TypedResults.NoContent();
 }
 
 public record class Person(string FirstName, string LastName);

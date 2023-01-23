@@ -16,15 +16,15 @@ public class SuppliersHandler : IEndpointRouteHandler
         endpoints.MapDelete("/api/suppliers/{id:guid}", Delete);
     }
 
-    private static IResult GetList() => Results.NoContent();
+    private static IResult GetList() => TypedResults.NoContent();
 
-    private static IResult Get(Guid id) => Results.NoContent();
+    private static IResult Get(Guid id) => TypedResults.NoContent();
 
-    private static IResult Insert(Supplier Person, DateTime? creationDate) => Results.NoContent();
+    private static IResult Insert(Supplier Person, DateTime? creationDate) => TypedResults.NoContent();
 
-    private static IResult Update(Supplier Person) => Results.NoContent();
+    private static IResult Update(Supplier Person) => TypedResults.NoContent();
 
-    private static IResult Delete(Guid id) => Results.NoContent();
+    private static IResult Delete(Guid id) => TypedResults.NoContent();
 }
 
 public record class Supplier(string Name);
