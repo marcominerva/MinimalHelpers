@@ -11,7 +11,7 @@ public class SuppliersHandler : IEndpointRouteHandler
     {
         endpoints.MapGet("/api/suppliers", GetList);
         endpoints.MapGet("/api/suppliers/{id:guid}", Get);
-        endpoints.MapPost("/api/suppliers", Insert);
+        endpoints.MapPost("/api/suppliers", Insert).WithOpenApi();
         endpoints.MapPut("/api/suppliers/{id:guid}", Update);
         endpoints.MapDelete("/api/suppliers/{id:guid}", Delete);
     }

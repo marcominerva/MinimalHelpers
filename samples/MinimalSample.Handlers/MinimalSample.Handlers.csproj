@@ -6,6 +6,10 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
+    </ItemGroup>
+    
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\MinimalHelpers.Routing\MinimalHelpers.Routing.csproj" />
 	</ItemGroup>

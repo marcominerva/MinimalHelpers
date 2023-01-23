@@ -1,3 +1,4 @@
+using MinimalHelpers.OpenApi;
 using MinimalHelpers.Routing;
 using MinimalSample.Handlers;
 
@@ -7,7 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
 {
-    //options.AddMissingSchemas();
+    options.AddMissingSchemas();
 });
 
 var app = builder.Build();

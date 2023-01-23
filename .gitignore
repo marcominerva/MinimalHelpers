@@ -349,5 +349,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-/src/MinimalHelpers.OpenApi/MinimalHelpers.OpenApi.xml
 /src/MinimalHelpers.Routing/MinimalHelpers.Routing.xml
+/src/MinimalHelpers.OpenApi/MinimalHelpers.OpenApi.xml
