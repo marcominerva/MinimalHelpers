@@ -1,15 +1,17 @@
-name: Publish on NuGet
+name: Publish Routing Helpers on NuGet
  
 on:
   push:
     branches: [ master ]
-    paths: [ 'src/**' ]
+    paths: [ 'src/MinimalHelpers.Routing/**' ]
   workflow_dispatch:
 
 env:
   NET_VERSION: '7.x'
   PROJECT_NAME: src/MinimalHelpers.Routing 
-  PROJECT_FILE: MinimalHelpers.Routing.csproj  
+  PROJECT_FILE: MinimalHelpers.Routing.csproj
+  TAG_NAME: routing
+  RELEASE_NAME: MinimalHelpers.Routing
   
 jobs:
   publish:
@@ -45,7 +47,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
-          tag_name: v${{ steps.nbgv.outputs.NuGetPackageVersion }}
-          release_name: Release ${{ steps.nbgv.outputs.NuGetPackageVersion }}
+          tag_name: ${{ env.TAG_NAME }}_v${{ steps.nbgv.outputs.NuGetPackageVersion }}
+          release_name: ${{ env.RELEASE_NAME }} ${{ steps.nbgv.outputs.NuGetPackageVersion }}
           draft: false
           prerelease: false

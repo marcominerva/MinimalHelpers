@@ -20,7 +20,7 @@ public class SuppliersHandler : IEndpointRouteHandler
 
     private static IResult Get(Guid id) => Results.NoContent();
 
-    private static IResult Insert(Supplier Person) => Results.NoContent();
+    private static IResult Insert(Supplier Person, DateTime? creationDate) => Results.NoContent();
 
     private static IResult Update(Supplier Person) => Results.NoContent();
 

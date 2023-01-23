@@ -4,7 +4,11 @@ using MinimalSample.Handlers;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerGen(options =>
+{
+    //options.AddMissingSchemas();
+});
 
 var app = builder.Build();
 

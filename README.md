@@ -9,9 +9,9 @@ A library that provides Routing helpers for Minimal API projects, mainly for aut
 
 **Installation**
 
-The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Routing). Just search *MinimalHelpers.Routing* in the **Package Manager GUI** or run the following command in the **Package Manager Console**:
+The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Routing). Just search for *MinimalHelpers.Routing* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
 
-    Install-Package MinimalHelpers.Routing
+    dotnet add package MinimalHelpers.Routing
 
 **Usage**
 

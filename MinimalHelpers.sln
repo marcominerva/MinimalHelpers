@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalSample.Handlers", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{72739819-7239-4B73-86BF-1E944D123C88}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHelpers.OpenApi", "src\MinimalHelpers.OpenApi\MinimalHelpers.OpenApi.csproj", "{A4DDF9B4-7D23-4FF9-9259-89C7179A7DC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{871982DC-EBA8-4BAE-A436-42C5E00E3BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{871982DC-EBA8-4BAE-A436-42C5E00E3BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{871982DC-EBA8-4BAE-A436-42C5E00E3BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4DDF9B4-7D23-4FF9-9259-89C7179A7DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4DDF9B4-7D23-4FF9-9259-89C7179A7DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4DDF9B4-7D23-4FF9-9259-89C7179A7DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4DDF9B4-7D23-4FF9-9259-89C7179A7DC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

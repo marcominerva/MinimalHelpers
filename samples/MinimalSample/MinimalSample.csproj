@@ -11,6 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\src\MinimalHelpers.OpenApi\MinimalHelpers.OpenApi.csproj" />
 		<ProjectReference Include="..\..\src\MinimalHelpers.Routing\MinimalHelpers.Routing.csproj" />
 		<ProjectReference Include="..\MinimalSample.Handlers\MinimalSample.Handlers.csproj" />
 	</ItemGroup>

@@ -5,16 +5,16 @@
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <DocumentationFile>MinimalHelpers.Routing.xml</DocumentationFile>
+        <DocumentationFile>MinimalHelpers.OpenApi.xml</DocumentationFile>
         <Authors>Marco Minerva</Authors>
         <Company>Marco Minerva</Company>
-        <Product>Routing Helpers for Minimal APIs</Product>
-        <Title>Routing Helpers for Minimal APIs</Title>
-        <Description>A library that provides Routing helpers for Minimal API projects, mainly for automatic endpoints registration</Description>
+        <Product>OpenApi Helpers for Minimal APIs</Product>
+        <Title>OpenApi Helpers for Minimal APIs</Title>
+        <Description>A library that provides OpenApi helpers for Minimal API projects</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/marcominerva/MinimalHelpers</PackageProjectUrl>
         <PackageIcon>Toolbox.png</PackageIcon>
-        <PackageTags>csharp visual-studio aspnetcore minimalapi routing utilities helpers</PackageTags>
+        <PackageTags>csharp visual-studio aspnetcore minimalapi openapi utilities helpers</PackageTags>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/marcominerva/MinimalHelpers.git</RepositoryUrl>
         <RepositoryBranch>master</RepositoryBranch>
@@ -22,7 +22,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="MinimalHelpers.Routing.xml" />
+        <None Remove="MinimalHelpers.OpenApi.xml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -35,5 +35,9 @@
             <PackagePath></PackagePath>
         </None>
         <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
     </ItemGroup>
 </Project>
