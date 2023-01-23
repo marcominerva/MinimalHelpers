@@ -22,10 +22,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="MinimalHelpers.Routing.xml" />
-    </ItemGroup>
-
-    <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
