@@ -39,6 +39,7 @@ app.MapEndpointsFromAssemblyContaining<SuppliersHandler>();
 //    return true;
 //});
 
-app.MapGet("/api/schemas", (Guid id, DateTime dateTime, DateOnly date, TimeOnly time) => TypedResults.NoContent());
+app.MapGet("/api/schemas", (Guid id, DateTime dateTime, DateOnly date, TimeOnly time) => TypedResults.NoContent())
+    .WithOpenApi();
 
 app.Run();
