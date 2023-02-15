@@ -26,18 +26,6 @@ internal class MissingSchemasOperationFilter : IOperationFilter
             }
         }
 
-#if NET7_0_OR_GREATER
-        // This is a workaround for the issue https://github.com/dotnet/aspnetcore/issues/45365.
-        // It will be removed as soon as the fix will be included in the NET 7.0.x release.
-        if (operation.Parameters?.Any() ?? false)
-        {
-            foreach (var parameter in operation.Parameters.Where(p => p.In is ParameterLocation.Query or ParameterLocation.Path or ParameterLocation.Header))
-            {
-                parameter.Content = null;
-            }
-        }
-#endif
-
         // We provide a way to return also the example, even if at this moment we actually don't use it.
         static (string? Format, string? Example) GetSchema(ApiParameterDescription parameterDescription)
         {
