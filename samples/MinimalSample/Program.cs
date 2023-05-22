@@ -40,6 +40,18 @@ app.MapEndpointsFromAssemblyContaining<SuppliersHandler>();
 //});
 
 app.MapGet("/api/schemas", (Guid id, DateTime dateTime, DateOnly date, TimeOnly time) => TypedResults.NoContent())
-    .WithOpenApi();
+.WithOpenApi();
+
+app.MapPost("/api/upload", (IFormFile file) =>
+{
+    return TypedResults.Ok(new { file.FileName, file.ContentType, file.Length });
+})
+.WithOpenApi();
+
+app.MapPost("/api/multiupload", (IFormFileCollection files) =>
+{
+    return TypedResults.Ok(new { FileCount = files.Count });
+})
+.WithOpenApi();
 
 app.Run();
