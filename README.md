@@ -117,7 +117,29 @@ Unlike Controllers, current version of Minimal API does not generate the correct
       }
     ]
 
-To solve the issue, just call the following extension method:
+Swagger documentation generation is incorrect also if you have an endpoint that accepts a [IFormFile](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iformfile) or [IFormFileCollection](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iformfilecollection) parameter and you're using the [WithOpenApi](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.openapiendpointconventionbuilderextensions.withopenapi) extension method in .NET 7.0 or later. For example:
+
+    app.MapPost("/api/upload", (IFormFile file) =>
+    {
+        return TypedResults.Ok(new { file.FileName, file.ContentType, file.Length });
+    })
+    .WithOpenApi();
+
+It generates the following incorrect content in **swagger.json**:
+
+    "requestBody": {
+      "content": {
+          "multipart/form-data": {
+              "schema": {
+                  "type": "string",
+                  "format": "binary"
+              }
+          }
+      },
+      "required": true
+    }
+
+To solve all the issues above, just call the following extension method:
 
     builder.Services.AddSwaggerGen(options =>
     {
@@ -161,6 +183,32 @@ And you'll see that the correct **format** attribute has been specified for each
         }
       }
     ]
+
+And also the [IFormFile](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iformfile) is now correctly defined:
+
+    "requestBody": {
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "required": [
+              "file"
+            ],
+            "type": "object",
+            "properties": {
+              "file": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          },
+          "encoding": {
+            "file": {
+              "style": "form"
+            }
+          }
+        }
+      }
+    }
 
 **Contribute**
 
