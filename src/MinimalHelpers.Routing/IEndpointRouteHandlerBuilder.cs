@@ -7,11 +7,14 @@ namespace MinimalHelpers.Routing;
 /// </summary>
 /// <seealso cref="IEndpointRouteBuilder" />
 /// <seealso cref="IEndpointRouteBuilderExtensions" />
-public interface IEndpointRouteHandler
+public interface IEndpointRouteHandlerBuilder
 {
     /// <summary>
     /// Maps route endpoints to the corresponding handlers.
     /// </summary>
     /// <param name="endpoints">The <see cref="IEndpointRouteBuilder" /> to add routes to.</param>
-    public void MapEndpoints(IEndpointRouteBuilder endpoints);
+#if NET7_0_OR_GREATER
+    static abstract
+#endif
+    void MapEndpoints(IEndpointRouteBuilder endpoints);
 }

@@ -1,17 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.7" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
     </ItemGroup>
-    
-	<ItemGroup>
-		<ProjectReference Include="..\..\src\MinimalHelpers.Routing\MinimalHelpers.Routing.csproj" />
-	</ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\MinimalHelpers.Routing\MinimalHelpers.Routing.csproj" />
+    </ItemGroup>
 
 </Project>
