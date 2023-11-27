@@ -26,7 +26,10 @@ if (app.Environment.IsDevelopment())
 app.MapEndpoints();
 
 // Maps all the endpoints within the same Assembly of the specified type.
-app.MapEndpointsFromAssemblyContaining<SuppliersHandler>();
+//app.MapEndpointsFromAssemblyContaining<SuppliersHandler>();
+
+// Explicitly maps the endpoints of the specified type.
+app.MapEndpoints<SuppliersHandler>();
 
 // You can further decide what types to map using a predicate:
 //app.MapEndpoints(type =>
