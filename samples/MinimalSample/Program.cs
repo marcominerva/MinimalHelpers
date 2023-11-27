@@ -8,7 +8,10 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
 {
-    options.AddMissingSchemas();
+    options.AddFormFile();
+
+    // This is only needed with .NET 7.0.
+    //options.AddMissingSchemas();
 });
 
 var app = builder.Build();
@@ -49,12 +52,22 @@ app.MapPost("/api/upload", (IFormFile file) =>
 {
     return TypedResults.Ok(new { file.FileName, file.ContentType, file.Length });
 })
-.WithOpenApi();
+.DisableAntiforgery()
+.WithOpenApi(operation =>
+{
+    operation.Description = "If you use the 'WithOpenApi' extension method, you need to call the 'AddFormFile' method on the 'SwaggerGenOptions' instance to be sure that swagger.json file contains the right definition.";
+    return operation;
+});
 
 app.MapPost("/api/multiupload", (IFormFileCollection files) =>
 {
     return TypedResults.Ok(new { FileCount = files.Count });
 })
-.WithOpenApi();
+.DisableAntiforgery()
+.WithOpenApi(operation =>
+{
+    operation.Description = "If you use the 'WithOpenApi' extension method, you need to call the 'AddFormFile' method on the 'SwaggerGenOptions' instance to be sure that swagger.json file contains the right definition.";
+    return operation;
+});
 
 app.Run();
