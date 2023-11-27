@@ -2,9 +2,9 @@
 
 namespace MinimalSample.Handlers;
 
-public class PeopleHandler : IEndpointRouteHandler
+public class PeopleHandler : IEndpointRouteHandlerBuilder
 {
-    public void MapEndpoints(IEndpointRouteBuilder endpoints)
+    public static void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
         endpoints.MapGet("/api/people", GetList);
         endpoints.MapGet("/api/people/{id:guid}", Get);

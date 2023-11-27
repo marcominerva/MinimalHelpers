@@ -5,9 +5,9 @@ using MinimalHelpers.Routing;
 
 namespace MinimalSample.Handlers;
 
-public class SuppliersHandler : IEndpointRouteHandler
+public class SuppliersHandler : IEndpointRouteHandlerBuilder
 {
-    public void MapEndpoints(IEndpointRouteBuilder endpoints)
+    public static void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
         endpoints.MapGet("/api/suppliers", GetList);
         endpoints.MapGet("/api/suppliers/{id:guid}", Get);
