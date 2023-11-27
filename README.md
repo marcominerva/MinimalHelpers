@@ -125,7 +125,7 @@ dotnet add package MinimalHelpers.OpenApi
 
 ***Add OpenApi support for IFormFile and IFormFileCollection***
 
-Minimal APIs does not generate the correct schema in **swagger.json** if we have an endpoint that accepts a [IFormFile](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iformfile) or [IFormFileCollection](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iformfilecollection) parameter and we're using the [WithOpenApi](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.openapiendpointconventionbuilderextensions.withopenapi) extension method in .NET 7.0 or later. For example:
+Minimal APIs don't generate the correct schema in **swagger.json** if we have an endpoint that accepts a [IFormFile](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iformfile) or [IFormFileCollection](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iformfilecollection) parameter and we're using the [WithOpenApi](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.openapiendpointconventionbuilderextensions.withopenapi) extension method in .NET 7.0 or later. For example:
 
 ```csharp
 app.MapPost("/api/upload", (IFormFile file) =>
@@ -191,7 +191,7 @@ And now the [IFormFile](https://learn.microsoft.com/dotnet/api/microsoft.aspnetc
 
 ***Add missing schema in swagger.json (.NET 7.0)***
 
-Unlike Controllers, Minimal APIs in .NET 7.0 does not generate the correct schema in **swagger.json** for certain file types, like `Guid`, `DateTime`, `DateOnly` and `TimeOnly` when using the [WithOpenApi](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.openapiendpointconventionbuilderextensions.withopenapi) extension method on endpoints. For example, given the following endpoint:
+Minimal APIs in .NET 7.0 don't generate the correct schema in **swagger.json** for certain file types, like `Guid`, `DateTime`, `DateOnly` and `TimeOnly` when using the [WithOpenApi](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.openapiendpointconventionbuilderextensions.withopenapi) extension method on endpoints. For example, given the following endpoint:
 
 ```csharp
     app.MapGet("/api/schemas",
