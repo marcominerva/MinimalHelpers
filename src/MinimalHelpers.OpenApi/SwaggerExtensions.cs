@@ -10,7 +10,7 @@ namespace MinimalHelpers.OpenApi;
 /// </summary>
 public static class SwaggerExtensions
 {
-#if NET7_0
+#if NET7_0_OR_GREATER
     /// <summary>
     /// Adds an <see cref="IOperationFilter"/> that extends <see langword="swagger.json"/> generation with missing schemas for common types (<see langword="Guid"/>, <see langword="DateTime"/>, <see langword="DateOnly"/> and <see langword="TimeOnly"/>) when using the <see langword="WithOpenApi"/> extension method on endpoints.
     /// </summary>

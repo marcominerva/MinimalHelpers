@@ -5,7 +5,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace MinimalHelpers.OpenApi.Filters;
 
-#if NET7_0
+#if NET7_0_OR_GREATER
 internal class MissingSchemasOperationFilter : IOperationFilter
 {
     public void Apply(OpenApiOperation operation, OperationFilterContext context)
