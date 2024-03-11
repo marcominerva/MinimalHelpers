@@ -16,4 +16,12 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="..\..\Toolbox.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+    
 </Project>
