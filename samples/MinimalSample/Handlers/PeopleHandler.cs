@@ -1,6 +1,4 @@
-﻿using MinimalHelpers.Routing;
-
-namespace MinimalSample.Handlers;
+﻿namespace MinimalSample.Handlers;
 
 public class PeopleHandler : IEndpointRouteHandlerBuilder
 {
@@ -19,7 +17,7 @@ public class PeopleHandler : IEndpointRouteHandlerBuilder
 
     private static IResult Insert(Person Person) => TypedResults.NoContent();
 
-    private static IResult Update(Person Person) => TypedResults.NoContent();
+    private static IResult Update(Guid id, Person Person) => TypedResults.NoContent();
 
     private static IResult Delete(Guid id) => TypedResults.NoContent();
 }
