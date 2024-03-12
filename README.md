@@ -94,9 +94,9 @@ app.MapEndpoints(type =>
 ```
 
 > **Note**
-This methods relies on Reflection to scan the Assembly and find the classes that implement the `IEndpointRouteHandlerBuilder` interface. This can have a performance impact, especially in large projects. If you have performance issues, consider using the explicit registration method. Moreover, this solution is incompatibile with Native AOT.
+These methods rely on Reflection to scan the Assembly and find the classes that implement the `IEndpointRouteHandlerBuilder` interface. This can have a performance impact, especially in large projects. If you have performance issues, consider using the explicit registration method. Moreover, this solution is incompatibile with Native AOT.
 
-If you're working with .NET 7.0 or higher, the reccommended approach is to use the MinimalHelpers.Routing.Analyzer package, that provides a Source Generator for endpoint registration, as described later.
+If you're working with .NET 7.0 or higher, the reccommended approach is to use the **MinimalHelpers.Routing.Analyzer** package, that provides a Source Generator for endpoints registration, as described later.
 
 ***Explicit Route Endpoints registration (.NET 7.0 or higher)***
 
@@ -116,7 +116,7 @@ app.Run();
 [![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Routing.Analyzers)](https://www.nuget.org/packages/MinimalHelpers.Routing.Analyzers)
 [![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Routing.Analyzers)](https://www.nuget.org/packages/MinimalHelpers.Routing.Analyzers)
 
-A library that provides a Source Generator automatic endpoints registration in Minimal API projects.
+A library that provides a Source Generator for automatic endpoints registration in Minimal API projects.
 
 ### Installation
 
@@ -147,7 +147,7 @@ public class PeopleHandler : IEndpointRouteHandlerBuilder
 ```
 
 > **Note**
-You only need to use the **MinimalHelpers.Routing.Analyzers** packages. With this Source Generator, the `IEndpointRouteHandlerBuilder` interface is auto-generated.
+You only need to use the **MinimalHelpers.Routing.Analyzers** package. With this Source Generator, the `IEndpointRouteHandlerBuilder` interface is auto-generated.
 
 Call the `MapEndpoints()` extension method on the **WebApplication** object inside *Program.cs* before the `Run()` method invocation:
 
