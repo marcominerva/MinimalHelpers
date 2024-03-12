@@ -22,8 +22,6 @@ dotnet add package MinimalHelpers.Routing
 
 ### Usage
 
-***Automatic Route Endpoints registration***
-
 Create a class to hold your route handlers registration and make it implementing the `IEndpointRouteHandlerBuilder` interface:
 
 **.NET 6.0**
@@ -96,20 +94,7 @@ app.MapEndpoints(type =>
 > **Note**
 These methods rely on Reflection to scan the Assembly and find the classes that implement the `IEndpointRouteHandlerBuilder` interface. This can have a performance impact, especially in large projects. If you have performance issues, consider using the explicit registration method. Moreover, this solution is incompatibile with Native AOT.
 
-If you're working with .NET 7.0 or higher, the reccommended approach is to use the **MinimalHelpers.Routing.Analyzer** package, that provides a Source Generator for endpoints registration, as described later.
-
-***Explicit Route Endpoints registration (.NET 7.0 or higher)***
-
-If you prefer to explicitly register your endpoints, you can use the `MapEndpoints<T>()` extension method, specifying the type that implements the `IRouteEndpointHandlerBuilder` interface:
-
-```csharp
-// using MinimalHelpers.Routing;
-app.MapEndpoints<PeopleHandler>();
-app.MapEndpoints<ProductsHandler>();
-app.MapEndpoints<SuppliersHandler>();
-
-app.Run();
-```
+If you're working with .NET 7.0 or higher, the reccommended approach is to use the **MinimalHelpers.Routing.Analyzers** package, that provides a Source Generator for endpoints registration, as described later.
 
 ## MinimalHelpers.Routing.Analyzers
 
