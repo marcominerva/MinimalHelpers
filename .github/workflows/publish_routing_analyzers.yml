@@ -1,4 +1,4 @@
-name: Publish Routing Helpers on NuGet
+name: Publish Routing Analyzers on NuGet
  
 on:
   push:

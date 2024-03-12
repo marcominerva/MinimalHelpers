@@ -6,7 +6,6 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <Authors>Marco Minerva</Authors>
         <Company>Marco Minerva</Company>
         <Product>Routing Helpers for Minimal APIs</Product>
