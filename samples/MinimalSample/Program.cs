@@ -1,6 +1,4 @@
 using MinimalHelpers.OpenApi;
-using MinimalHelpers.Routing;
-using MinimalSample.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,26 +25,6 @@ if (app.Environment.IsDevelopment())
 
 // Maps all the endpoints within this Assembly.
 app.MapEndpoints();
-
-// Maps all the endpoints within the same Assembly of the specified type.
-//app.MapEndpointsFromAssemblyContaining<SuppliersHandler>();
-
-// Explicitly maps the endpoints of the specified type.
-app.MapEndpoints<SuppliersHandler>();
-
-// You can further decide what types to map using a predicate:
-//app.MapEndpoints(type =>
-//{
-//    if (type.Name.StartsWith("Products"))
-//    {
-//        return false;
-//    }
-
-//    return true;
-//});
-
-app.MapGet("/api/schemas", (Guid id, DateTime dateTime, DateOnly date, TimeOnly time) => TypedResults.NoContent())
-.WithOpenApi();
 
 app.MapPost("/api/upload", (IFormFile file) =>
 {
