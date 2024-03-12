@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace MinimalHelpers.Routing.Analyzers;
 
 [Generator]
-public class EndpointGenerator : IIncrementalGenerator
+public class EndpointHandlerGenerator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -43,7 +43,7 @@ public class EndpointGenerator : IIncrementalGenerator
             /// <summary>
             /// Provides extension methods for <see cref="IEndpointRouteHandlerBuilder" /> to add route handlers.
             /// </summary>
-            public static class EndpointRouteHandlerBuilderExtensions
+            public static class EndpointRouteBuilderExtensions
             {
                 /// <summary>
                 /// Automatically registers all the route endpoints defined in classes that implement the <see cref="IEndpointRouteHandlerBuilder "/> interface.
@@ -73,7 +73,7 @@ public class EndpointGenerator : IIncrementalGenerator
 
         codeBuilder.AppendLine(suffixCode);
 
-        context.AddSource("EndpointRouteHandlerBuilderExtensions.g.cs", codeBuilder.ToString());
+        context.AddSource("EndpointRouteBuilderExtensions.g.cs", codeBuilder.ToString());
     }
 
     private static string GetIEndpointRouteHandlerBuilderInterface()
