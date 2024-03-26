@@ -96,7 +96,7 @@ These methods rely on Reflection to scan the Assembly and find the classes that 
 
 If you're working with .NET 7.0 or higher, the reccommended approach is to use the **MinimalHelpers.Routing.Analyzers** package, that provides a Source Generator for endpoints registration, as described later.
 
-## MinimalHelpers.Routing.Analyzers
+## MinimalHelpers.Routing.Analyzers (.NET 7.0 or higher)
 
 [![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Routing.Analyzers)](https://www.nuget.org/packages/MinimalHelpers.Routing.Analyzers)
 [![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Routing.Analyzers)](https://www.nuget.org/packages/MinimalHelpers.Routing.Analyzers)
