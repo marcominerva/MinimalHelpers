@@ -34,11 +34,12 @@ public static class SwaggerExtensions
         => options.OperationFilter<FormFileOperationFilter>();
 
     /// <summary>
-    /// Gets a <see cref="OpenApiParameter"/> by name from the specified list of parameters.
+    /// Gets the <see cref="OpenApiParameter"/> by name from the specified list of parameters.
     /// </summary>
     /// <param name="parameters">The list of <see cref="OpenApiParameter"/> objects.</param>
     /// <param name="name">The name of the parameter to retrieve.</param>
-    /// <returns>The <see cref="OpenApiParameter"/> object with the specified name, or <see langword="null"/> if not found.</returns>
-    public static OpenApiParameter? GetByName(this IList<OpenApiParameter> parameters, string name)
-        => parameters.FirstOrDefault(p => p.Name == name);
+    /// <returns>The <see cref="OpenApiParameter"/> object with the specified name.</returns>
+    /// <exception cref="InvalidOperationException">The parameter with the specified name was not found.</exception>
+    public static OpenApiParameter GetByName(this IList<OpenApiParameter> parameters, string name)
+        => parameters.Single(p => p.Name == name);
 }
