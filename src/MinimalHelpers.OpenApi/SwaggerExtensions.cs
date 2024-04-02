@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using MinimalHelpers.OpenApi.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -31,4 +32,13 @@ public static class SwaggerExtensions
     /// <seealso cref="IOperationFilter"/>
     public static void AddFormFile(this SwaggerGenOptions options)
         => options.OperationFilter<FormFileOperationFilter>();
+
+    /// <summary>
+    /// Gets a <see cref="OpenApiParameter"/> by name from the specified list of parameters.
+    /// </summary>
+    /// <param name="parameters">The list of <see cref="OpenApiParameter"/> objects.</param>
+    /// <param name="name">The name of the parameter to retrieve.</param>
+    /// <returns>The <see cref="OpenApiParameter"/> object with the specified name, or <see langword="null"/> if not found.</returns>
+    public static OpenApiParameter? GetByName(this IList<OpenApiParameter> parameters, string name)
+        => parameters.FirstOrDefault(p => p.Name == name);
 }
