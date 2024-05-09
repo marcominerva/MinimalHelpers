@@ -44,13 +44,32 @@ public static class SwaggerExtensions
         => parameters.Single(p => p.Name == name);
 
     /// <summary>
-    /// Gets the <see cref="OpenApiParameter"/> by name that is available in the <see cref="OpenApiOperation"/> paramters list.
+    /// Gets the <see cref="OpenApiParameter"/> by name that is available in the <see cref="OpenApiOperation"/> parameters list.
     /// </summary>
     /// <param name="operation">The <see cref="OpenApiOperation"/> object.</param>
     /// <param name="name">The name of the parameter to retrieve.</param>
     /// <returns>The <see cref="OpenApiParameter"/> object with the specified name.</returns>
     /// <exception cref="InvalidOperationException">The parameter with the specified name was not found.</exception>
     public static OpenApiParameter Parameter(this OpenApiOperation operation, string name)
-        => operation.Parameters.Single(p => p.Name == name);
+        => operation.Parameters.GetByName(name);
 
+    /// <summary>
+    /// Gets the <see cref="OpenApiResponse"/> by status code from the specified list of status codes.
+    /// </summary>
+    /// <param name="responses">The object that contains the list of <see cref="OpenApiResponse"/> objects.</param>
+    /// <param name="statusCode">The status code of the response to retrieve.</param>
+    /// <returns>The <see cref="OpenApiResponse"/> object with the specified status code.</returns>
+    /// <exception cref="InvalidOperationException">The response with the specified name was not found.</exception>    
+    public static OpenApiResponse GetByStatusCode(this OpenApiResponses responses, int statusCode)
+        => responses.Single(r => r.Key == statusCode.ToString()).Value;
+
+    /// <summary>
+    /// Gets the <see cref="OpenApiResponse"/> by status code that is available in the <see cref="OpenApiOperation"/> responses list.
+    /// </summary>
+    /// <param name="operation">The <see cref="OpenApiOperation"/> object.</param>
+    /// <param name="statusCode">The status code of the response to retrieve.</param>
+    /// <returns>The <see cref="OpenApiResponse"/> object with the specified status code.</returns>
+    /// <exception cref="InvalidOperationException">The response with the specified name was not found.</exception>    
+    public static OpenApiResponse Response(this OpenApiOperation operation, int statusCode)
+        => operation.Responses.GetByStatusCode(statusCode);
 }
