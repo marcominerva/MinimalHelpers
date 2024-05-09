@@ -39,7 +39,18 @@ public static class SwaggerExtensions
     /// <param name="parameters">The list of <see cref="OpenApiParameter"/> objects.</param>
     /// <param name="name">The name of the parameter to retrieve.</param>
     /// <returns>The <see cref="OpenApiParameter"/> object with the specified name.</returns>
-    /// <exception cref="InvalidOperationException">The parameter with the specified name was not found.</exception>
+    /// <exception cref="InvalidOperationException">The parameter with the specified name was not found.</exception>    
     public static OpenApiParameter GetByName(this IList<OpenApiParameter> parameters, string name)
         => parameters.Single(p => p.Name == name);
+
+    /// <summary>
+    /// Gets the <see cref="OpenApiParameter"/> by name that is available in the <see cref="OpenApiOperation"/> paramters list.
+    /// </summary>
+    /// <param name="operation">The <see cref="OpenApiOperation"/> object.</param>
+    /// <param name="name">The name of the parameter to retrieve.</param>
+    /// <returns>The <see cref="OpenApiParameter"/> object with the specified name.</returns>
+    /// <exception cref="InvalidOperationException">The parameter with the specified name was not found.</exception>
+    public static OpenApiParameter Parameter(this OpenApiOperation operation, string name)
+        => operation.Parameters.Single(p => p.Name == name);
+
 }
