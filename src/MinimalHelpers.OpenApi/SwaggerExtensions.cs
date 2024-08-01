@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using MinimalHelpers.OpenApi.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace MinimalHelpers.OpenApi;
@@ -11,17 +9,6 @@ namespace MinimalHelpers.OpenApi;
 /// </summary>
 public static class SwaggerExtensions
 {
-#if NET7_0
-    /// <summary>
-    /// Adds an <see cref="IOperationFilter"/> that extends <see langword="swagger.json"/> generation with missing schemas for common types (<see langword="Guid"/>, <see langword="DateTime"/>, <see langword="DateOnly"/> and <see langword="TimeOnly"/>) when using the <see langword="WithOpenApi"/> extension method on endpoints.
-    /// </summary>
-    /// <param name="options">The <see cref="SwaggerGenOptions"/> that contains the options to generate Swagger documentation.</param>
-    /// <seealso cref="SwaggerGenOptions"/>
-    /// <seealso cref="IOperationFilter"/>
-    public static void AddMissingSchemas(this SwaggerGenOptions options)
-        => options.OperationFilter<MissingSchemasOperationFilter>();
-#endif
-
     /// <summary>
     /// Adds an <see cref="IOperationFilter"/> that fixes <see langword="swagger.json"/> generation for <see cref="IFormFile"/> and <see cref="IFormFileCollection"/> parameters when using the <see langword="WithOpenApi"/> extension method on endpoints.
     /// </summary>
@@ -30,8 +17,9 @@ public static class SwaggerExtensions
     /// <seealso cref="IFormFileCollection"/>
     /// <seealso cref="SwaggerGenOptions"/>
     /// <seealso cref="IOperationFilter"/>
+    [Obsolete("This method is no longer necessary and will be removed in a future version")]
     public static void AddFormFile(this SwaggerGenOptions options)
-        => options.OperationFilter<FormFileOperationFilter>();
+    { }
 
     /// <summary>
     /// Gets the <see cref="OpenApiParameter"/> by name from the specified list of parameters.
@@ -44,7 +32,7 @@ public static class SwaggerExtensions
         => parameters.Single(p => p.Name == name);
 
     /// <summary>
-    /// Gets the <see cref="OpenApiParameter"/> by name that is available in the <see cref="OpenApiOperation"/> parameters list.
+    /// Gets by name the <see cref="OpenApiParameter"/> that is available in the <see cref="OpenApiOperation"/> parameters list.
     /// </summary>
     /// <param name="operation">The <see cref="OpenApiOperation"/> object.</param>
     /// <param name="name">The name of the parameter to retrieve.</param>
@@ -64,7 +52,7 @@ public static class SwaggerExtensions
         => responses.Single(r => r.Key == statusCode.ToString()).Value;
 
     /// <summary>
-    /// Gets the <see cref="OpenApiResponse"/> by status code that is available in the <see cref="OpenApiOperation"/> responses list.
+    /// Gets by status code the <see cref="OpenApiResponse"/> that is available in the <see cref="OpenApiOperation"/> responses list.
     /// </summary>
     /// <param name="operation">The <see cref="OpenApiOperation"/> object.</param>
     /// <param name="statusCode">The status code of the response to retrieve.</param>

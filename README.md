@@ -162,168 +162,30 @@ dotnet add package MinimalHelpers.OpenApi
 
 ### Usage
 
-***Add OpenApi support for IFormFile and IFormFileCollection***
+***Extension methods for OpenApi***
 
-Minimal APIs don't generate the correct schema in **swagger.json** if we have an endpoint that accepts a [IFormFile](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iformfile) or [IFormFileCollection](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iformfilecollection) parameter and we're using the [WithOpenApi](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.openapiendpointconventionbuilderextensions.withopenapi) extension method in .NET 7.0 or later. For example:
-
-```csharp
-app.MapPost("/api/upload", (IFormFile file) =>
-{
-    return TypedResults.Ok(new { file.FileName, file.ContentType, file.Length });
-})
-.WithOpenApi();
-```
-
-This definition generates the following incorrect content in **swagger.json**:
-
-```json
-"requestBody": {
-    "content": {
-        "multipart/form-data": {
-            "schema": {
-                "type": "string",
-                "format": "binary"
-            }
-        }
-    },
-    "required": true
-}
-```
-
-To solve this issue, just call the following extension method:
+This library provides some extensions methods that simplify the OpenAPI configuration in Minimal API projects. For example, it is possible to customize the description of a response using its status code:
 
 ```csharp
-builder.Services.AddSwaggerGen(options =>
-{
-    // using MinimalHelpers.OpenApi;
-    options.AddFormFile();
-});
-```
+endpoints.MapPost("login", LoginAsync)
+    .AllowAnonymous()
+    .WithValidation<LoginRequest>()
+    .Produces<LoginResponse>(StatusCodes.Status200OK)
+    .Produces<LoginResponse>(StatusCodes.Status206PartialContent)
+    .Produces(StatusCodes.Status403Forbidden)
+    .ProducesValidationProblem()
+    .WithOpenApi(operation =>
+    {
+        operation.Summary = "Performs the login of a user";
 
-And now the [IFormFile](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iformfile) is correctly defined:
+        operation.Response(StatusCodes.Status200OK).Description = "Login successful";
+        operation.Response(StatusCodes.Status206PartialContent).Description = "The user is logged in, but the password has expired and must be changed";
+        operation.Response(StatusCodes.Status400BadRequest).Description = "Incorrect username and/or password";
+        operation.Response(StatusCodes.Status403Forbidden).Description = "The user was blocked due to too many failed logins";
 
-```json
-"requestBody": {
-  "content": {
-    "multipart/form-data": {
-      "schema": {
-        "required": [
-          "file"
-        ],
-        "type": "object",
-        "properties": {
-          "file": {
-            "type": "string",
-            "format": "binary"
-          }
-        }
-      },
-      "encoding": {
-        "file": {
-          "style": "form"
-        }
-      }
-    }
-  }
-}
-```
-
-***Add missing schema in swagger.json (.NET 7.0)***
-
-Minimal APIs in .NET 7.0 don't generate the correct schema in **swagger.json** for certain file types, like `Guid`, `DateTime`, `DateOnly` and `TimeOnly` when using the [WithOpenApi](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.openapiendpointconventionbuilderextensions.withopenapi) extension method on endpoints. For example, given the following endpoint:
-
-```csharp
-    app.MapGet("/api/schemas",
-        (Guid id, DateTime dateTime, DateOnly date, TimeOnly time) => TypedResults.NoContent());
-```
-
-**swagger.json** will not contain **format** specification for these data types (whereas Controllers correctly set them):
-
-```json
-"parameters": [
-  {
-    "name": "id",
-    // ...
-    "schema": {
-      "type": "string"
-    }
-  },
-  {
-    "name": "dateTime",
-    // ...
-    "schema": {
-      "type": "string"
-    }
-  },
-  {
-    "name": "date",
-    // ...
-    "schema": {
-      "type": "string"
-    }
-  },
-  {
-    "name": "time",
-    // ...
-    "schema": {
-      "type": "string"
-    }
-  }
-]
-```
-
-To solve these issues, just call the following extension method:
-
-```csharp
-builder.Services.AddSwaggerGen(options =>
-{
-    // using MinimalHelpers.OpenApi;
-    options.AddMissingSchemas();
-});
-```
-
-And you'll see that the correct **format** attribute has been specified for each parameter.
-
-```json
-"parameters": [
-  {
-    "name": "id",
-    // ...
-    "schema": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  {
-    "name": "dateTime",
-    // ...
-    "schema": {
-      "type": "string",
-      "format": "date-time"
-    }
-  },
-  {
-    "name": "date",
-    // ...
-    "schema": {
-      "type": "string",
-      "format": "date"
-    }
-  },
-  {
-    "name": "time",
-    // ...
-    "schema": {
-      "type": "string",
-      "format": "time"
-    }
-  }
-]    
-```
-
-> **Note**
-This workaround is no longer necessary in .NET 8.0 or higher, since it correctly sets in the **format** attribute in **swagger.json** for these data types.
-
+        return operation;
+    });
+ ```
 
 **Contribute**
 
