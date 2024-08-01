@@ -32,7 +32,7 @@ public static class SwaggerExtensions
         => parameters.Single(p => p.Name == name);
 
     /// <summary>
-    /// Gets the <see cref="OpenApiParameter"/> by name that is available in the <see cref="OpenApiOperation"/> parameters list.
+    /// Gets by name the <see cref="OpenApiParameter"/> that is available in the <see cref="OpenApiOperation"/> parameters list.
     /// </summary>
     /// <param name="operation">The <see cref="OpenApiOperation"/> object.</param>
     /// <param name="name">The name of the parameter to retrieve.</param>
@@ -52,7 +52,7 @@ public static class SwaggerExtensions
         => responses.Single(r => r.Key == statusCode.ToString()).Value;
 
     /// <summary>
-    /// Gets the <see cref="OpenApiResponse"/> by status code that is available in the <see cref="OpenApiOperation"/> responses list.
+    /// Gets by status code the <see cref="OpenApiResponse"/> that is available in the <see cref="OpenApiOperation"/> responses list.
     /// </summary>
     /// <param name="operation">The <see cref="OpenApiOperation"/> object.</param>
     /// <param name="statusCode">The status code of the response to retrieve.</param>
