@@ -240,7 +240,7 @@ If the validation fails, the response will be a `400 Bad Request` with a `Valida
 
 ```json
 {
-  "type": "https://httpstatuses.io/400",
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
   "title": "One or more validation errors occurred",
   "status": 400,
   "instance": "/api/people",
@@ -335,7 +335,7 @@ If the validation fails, the response will be a `400 Bad Request` with a `Valida
 
 ```json
 {
-  "type": "https://httpstatuses.io/400",
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
   "title": "One or more validation errors occurred",
   "status": 400,
   "instance": "/api/products",
