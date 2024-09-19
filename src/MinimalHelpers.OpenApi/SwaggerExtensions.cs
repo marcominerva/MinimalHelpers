@@ -19,7 +19,8 @@ public static class SwaggerExtensions
     /// <seealso cref="IOperationFilter"/>
     [Obsolete("This method is no longer necessary and will be removed in a future version")]
     public static void AddFormFile(this SwaggerGenOptions options)
-    { }
+    {
+    }
 
     /// <summary>
     /// Gets the <see cref="OpenApiParameter"/> by name from the specified list of parameters.
