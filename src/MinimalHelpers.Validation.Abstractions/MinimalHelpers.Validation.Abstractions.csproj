@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0</TargetFrameworks>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>MinimalHelpers.Validation</RootNamespace>
+        <DocumentationFile>MinimalHelpers.Validation.Abstractions.xml</DocumentationFile>
+        <Authors>Marco Minerva</Authors>
+        <Company>Marco Minerva</Company>
+        <Product>Validation Abstractions for Minimal APIs</Product>
+        <Title>Validation Abstractions for Minimal APIs</Title>
+        <Description>Validation abstractions for Minimal APIs</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/marcominerva/MinimalHelpers</PackageProjectUrl>
+        <PackageIcon>Toolbox.png</PackageIcon>
+        <PackageTags>csharp visual-studio aspnetcore minimalapi validation utilities helpers</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/marcominerva/MinimalHelpers.git</RepositoryUrl>
+        <RepositoryBranch>master</RepositoryBranch>
+        <PackageReadmeFile>README.md</PackageReadmeFile>        
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="MinimalHelpers.Validation.Abstractions.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+</Project>

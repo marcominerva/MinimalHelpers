@@ -1,13 +1,23 @@
-﻿namespace MinimalSample.Handlers;
+﻿using MinimalHelpers.FluentValidation;
+
+namespace MinimalSample.Handlers;
 
 public class ProductsHandler : IEndpointRouteHandlerBuilder
 {
     public static void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
         endpoints.MapGet("/api/products", GetList);
+
         endpoints.MapGet("/api/products/{id:guid}", Get);
-        endpoints.MapPost("/api/products", Insert);
-        endpoints.MapPut("/api/products/{id:guid}", Update);
+
+        endpoints.MapPost("/api/products", Insert)
+            // MinimalHelpers.FluentValidation package performs validation with Data Annotations.
+            .WithValidation<Product>();
+
+        endpoints.MapPut("/api/products/{id:guid}", Update)
+            // MinimalHelpers.FluentValidation package performs validation with Data Annotations.
+            .WithValidation<Product>();
+
         endpoints.MapDelete("/api/products/{id:guid}", Delete);
     }
 

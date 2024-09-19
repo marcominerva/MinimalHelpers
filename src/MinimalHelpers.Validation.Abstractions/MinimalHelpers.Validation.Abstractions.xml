@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MinimalHelpers.Validation.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:MinimalHelpers.Validation.ErrorResponseFormat">
+            <summary>
+            Specifies the format of the error response.
+            </summary>
+        </member>
+        <member name="F:MinimalHelpers.Validation.ErrorResponseFormat.Default">
+            <summary>
+            The default error response format as dictionary.
+            </summary>
+        </member>
+        <member name="F:MinimalHelpers.Validation.ErrorResponseFormat.List">
+            <summary>
+            The error response format as a list.
+            </summary>
+        </member>
+        <member name="T:MinimalHelpers.Validation.ServiceCollectionExtensions">
+            <summary>
+            Provides extension methods for adding validation support.
+            </summary>
+        </member>
+        <member name="M:MinimalHelpers.Validation.ServiceCollectionExtensions.ConfigureValidation(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{MinimalHelpers.Validation.ValidationOptions})">
+            <summary>
+            Adds the validation services to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to add the services to.</param>
+            <param name="configureOptions">The <see cref="T:System.Action`1"/> to configure the validation options.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+        </member>
+        <member name="T:MinimalHelpers.Validation.ValidationOptions">
+            <summary>
+            Options for configuring validation behavior.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ProblemDetails"/>"/>
+        </member>
+        <member name="P:MinimalHelpers.Validation.ValidationOptions.ErrorResponseFormat">
+            <summary>
+            Gets or sets the format of the error messages in the <see cref="T:Microsoft.AspNetCore.Mvc.ProblemDetails"/> response.
+            </summary>
+            <seealso cref="P:MinimalHelpers.Validation.ValidationOptions.ErrorResponseFormat"/>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ProblemDetails"/>"/>
+        </member>
+        <member name="P:MinimalHelpers.Validation.ValidationOptions.ValidationErrorMessageFactory">
+            <summary>
+            Gets or sets the factory for creating the title property in the <see cref="T:Microsoft.AspNetCore.Mvc.ProblemDetails"/> validation error messages.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ProblemDetails"/>
+        </member>
+    </members>
+</doc>

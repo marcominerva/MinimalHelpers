@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MinimalHelpers.FluentValidation</name>
+    </assembly>
+    <members>
+        <member name="T:MinimalHelpers.FluentValidation.RouteHandlerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder"/> to add validation.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder"/>
+        </member>
+        <member name="M:MinimalHelpers.FluentValidation.RouteHandlerBuilderExtensions.WithValidation``1(Microsoft.AspNetCore.Builder.RouteHandlerBuilder)">
+            <summary>
+            Adds to the <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder"/> a filter that validates the <typeparamref name="T"/> object.
+            </summary>
+            <typeparam name="T">The type of the object to validate.</typeparam>
+            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder"/> to add validation filter to.</param>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder"/> with validation filter added.</returns>
+            <remarks>The validation is performed using <a href="https://fluentvalidation.net">FluentValidation</a>.</remarks>
+        </member>
+    </members>
+</doc>
