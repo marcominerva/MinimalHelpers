@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
+# 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalSample", "samples\MinimalSample\MinimalSample.csproj", "{E2C81EC8-A32D-4241-9661-DE2A97E9798F}"
@@ -18,6 +18,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHelpers.OpenApi", "src\MinimalHelpers.OpenApi\MinimalHelpers.OpenApi.csproj", "{A4DDF9B4-7D23-4FF9-9259-89C7179A7DC8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHelpers.Routing.Analyzers", "src\MinimalHelpers.Routing.Analyzers\MinimalHelpers.Routing.Analyzers.csproj", "{D3D6F2F5-FC23-4FAA-997E-935CD5CFF38D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenApi", "OpenApi", "{7B088E71-866F-43F2-8E73-9B444DAD3FD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Routing", "Routing", "{6BD388AA-32D1-4B35-B871-02C57F51F0CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,9 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E2C81EC8-A32D-4241-9661-DE2A97E9798F} = {72739819-7239-4B73-86BF-1E944D123C88}
+		{6220D0C3-50AD-4C4B-9EDC-49B9F5AF0668} = {6BD388AA-32D1-4B35-B871-02C57F51F0CB}
+		{A4DDF9B4-7D23-4FF9-9259-89C7179A7DC8} = {7B088E71-866F-43F2-8E73-9B444DAD3FD7}
+		{D3D6F2F5-FC23-4FAA-997E-935CD5CFF38D} = {6BD388AA-32D1-4B35-B871-02C57F51F0CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {38B57A92-6EA7-4B79-8400-F4BE44873C46}

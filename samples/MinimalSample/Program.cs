@@ -14,7 +14,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Maps all the endpoints within this Assembly.
+// Maps all the endpoints.
 app.MapEndpoints();
 
 app.Run();
