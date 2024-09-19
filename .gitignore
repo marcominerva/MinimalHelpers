@@ -351,6 +351,6 @@ MigrationBackup/
 
 /src/MinimalHelpers.Routing/MinimalHelpers.Routing.xml
 /src/MinimalHelpers.OpenApi/MinimalHelpers.OpenApi.xml
+/src/MinimalHelpers.Validation.Abstractions/MinimalHelpers.Validation.Abstractions.xml
 /src/MinimalHelpers.Validation/MinimalHelpers.Validation.xml
 /src/MinimalHelpers.FluentValidation/MinimalHelpers.FluentValidation.xml
-/src/MinimalHelpers.Validation.Abstractions/MinimalHelpers.Validation.Abstractions.xml

@@ -13,7 +13,7 @@ builder.Services.ConfigureValidation(options =>
     //options.ErrorResponseFormat = ErrorResponseFormat.List;
 
     // The default is "One or more validation errors occurred"
-    //options.ValidationErrorMessageFactory = (context, errors) => $"There was {errors.Values.Sum(v => v.Length)} error(s)";
+    //options.ValidationErrorTitleMessageFactory = (context, errors) => $"There was {errors.Values.Sum(v => v.Length)} error(s)";
 });
 
 var app = builder.Build();

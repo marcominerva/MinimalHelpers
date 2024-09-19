@@ -30,7 +30,7 @@ internal class ValidatorFilter<T>(IOptions<ValidationOptions> options) : IEndpoi
         {
             Status = statusCode,
             Type = $"https://httpstatuses.io/{statusCode}",
-            Title = validationOptions.ValidationErrorMessageFactory?.Invoke(context, errors) ?? "One or more validation errors occurred",
+            Title = validationOptions.ValidationErrorTitleMessageFactory?.Invoke(context, errors) ?? "One or more validation errors occurred",
             Instance = context.HttpContext.Request.Path,
             Extensions = new Dictionary<string, object?>(StringComparer.Ordinal)
             {

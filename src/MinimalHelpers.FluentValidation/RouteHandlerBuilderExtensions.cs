@@ -17,5 +17,10 @@ public static class RouteHandlerBuilderExtensions
     /// <returns>The <see cref="RouteHandlerBuilder"/> with validation filter added.</returns>
     /// <remarks>The validation is performed using <a href="https://fluentvalidation.net">FluentValidation</a>.</remarks>
     public static RouteHandlerBuilder WithValidation<T>(this RouteHandlerBuilder builder) where T : class
-        => builder.AddEndpointFilter<ValidatorFilter<T>>();
+    {
+        builder.AddEndpointFilter<ValidatorFilter<T>>()
+           .ProducesValidationProblem();
+
+        return builder;
+    }
 }

@@ -15,7 +15,12 @@ public static class RouteHandlerBuilderExtensions
     /// <typeparam name="T">The type of the object to validate.</typeparam>
     /// <param name="builder">The <see cref="RouteHandlerBuilder"/> to add validation filter to.</param>
     /// <returns>The <see cref="RouteHandlerBuilder"/> with validation filter added.</returns>
-    /// <remarks>The validation is performed using Data annotations.</remarks>
+    /// <remarks>The validation is performed with Data annotations, using <a href="https://github.com/DamianEdwards/MiniValidation">MiniValidation</a>.</remarks>
     public static RouteHandlerBuilder WithValidation<T>(this RouteHandlerBuilder builder) where T : class
-        => builder.AddEndpointFilter<ValidatorFilter<T>>();
+    {
+        builder.AddEndpointFilter<ValidatorFilter<T>>()
+            .ProducesValidationProblem();
+
+        return builder;
+    }
 }

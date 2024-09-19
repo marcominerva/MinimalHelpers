@@ -20,5 +20,5 @@ public class ValidationOptions
     /// Gets or sets the factory for creating the title property in the <see cref="ProblemDetails"/> validation error messages.
     /// </summary>
     /// <seealso cref="ProblemDetails"/>
-    public Func<EndpointFilterInvocationContext, IDictionary<string, string[]>, string>? ValidationErrorMessageFactory { get; set; }
+    public Func<EndpointFilterInvocationContext, IDictionary<string, string[]>, string>? ValidationErrorTitleMessageFactory { get; set; }
 }
