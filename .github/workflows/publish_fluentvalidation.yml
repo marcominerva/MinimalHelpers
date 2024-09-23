@@ -10,7 +10,7 @@ env:
   NET_VERSION: '8.x'
   PROJECT_NAME: src/MinimalHelpers.FluentValidation 
   PROJECT_FILE: MinimalHelpers.FluentValidation.csproj
-  TAG_NAME: routing
+  TAG_NAME: fluentvalidation
   RELEASE_NAME: MinimalHelpers.FluentValidation
   
 jobs:
