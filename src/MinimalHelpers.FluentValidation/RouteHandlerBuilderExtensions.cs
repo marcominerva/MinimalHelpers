@@ -14,7 +14,7 @@ public static class RouteHandlerBuilderExtensions
     /// </summary>
     /// <typeparam name="T">The type of the object to validate.</typeparam>
     /// <param name="builder">The <see cref="RouteHandlerBuilder"/> to add validation filter to.</param>
-    /// <returns>The <see cref="RouteHandlerBuilder"/> with validation filter added.</returns>
+    /// <returns>The <see cref="RouteHandlerBuilder"/> with the added validation filter.</returns>
     /// <remarks>The validation is performed using <a href="https://fluentvalidation.net">FluentValidation</a>.</remarks>
     public static RouteHandlerBuilder WithValidation<T>(this RouteHandlerBuilder builder) where T : class
     {
