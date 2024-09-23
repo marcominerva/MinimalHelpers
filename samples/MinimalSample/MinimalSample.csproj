@@ -7,13 +7,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\src\MinimalHelpers.FluentValidation\MinimalHelpers.FluentValidation.csproj" />
 		<ProjectReference Include="..\..\src\MinimalHelpers.OpenApi\MinimalHelpers.OpenApi.csproj" />
 		<ProjectReference Include="..\..\src\MinimalHelpers.Routing.Analyzers\MinimalHelpers.Routing.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\..\src\MinimalHelpers.Validation\MinimalHelpers.Validation.csproj" />
 	</ItemGroup>
 
 </Project>
