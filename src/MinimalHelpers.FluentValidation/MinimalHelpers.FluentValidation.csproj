@@ -18,7 +18,9 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/marcominerva/MinimalHelpers.git</RepositoryUrl>
         <RepositoryBranch>master</RepositoryBranch>
-        <PackageReadmeFile>README.md</PackageReadmeFile>        
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeProjectReferenceDlls</TargetsForTfmSpecificBuildOutput>
+        <NoWarn>$(NoWarn);NU5131</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -42,6 +44,17 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MinimalHelpers.Validation.Abstractions\MinimalHelpers.Validation.Abstractions.csproj" />
+      <ProjectReference Include="..\MinimalHelpers.Validation.Abstractions\MinimalHelpers.Validation.Abstractions.csproj" PrivateAssets="all" />
     </ItemGroup>
+
+    <ItemGroup>
+        <!-- Add a ref folder to the package which only exposes the library so that the referenced class library doesn't get exposed. -->
+        <None Include="$(TargetPath)" PackagePath="ref/$(TargetFramework)" Pack="true" Condition="'$(TargetFramework)' != ''" />
+    </ItemGroup>
+
+    <Target Name="IncludeProjectReferenceDlls" DependsOnTargets="BuildOnlySettings;ResolveReferences">
+        <ItemGroup>
+            <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'All'))"/>
+        </ItemGroup>
+    </Target>
 </Project>
