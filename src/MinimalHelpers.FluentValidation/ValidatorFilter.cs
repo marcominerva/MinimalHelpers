@@ -26,8 +26,8 @@ internal class ValidatorFilter<T>(IValidator<T> validator, IOptions<ValidationOp
 
         var errors = validationResult.ToDictionary();
 
-        var result = TypedResults.ValidationProblem(
-            errors: new Dictionary<string, string[]>(),
+        var result = TypedResults.Problem(
+            statusCode: StatusCodes.Status400BadRequest,
             instance: context.HttpContext.Request.Path,
             title: validationOptions.ValidationErrorTitleMessageFactory?.Invoke(context, errors) ?? "One or more validation errors occurred",
             extensions: new Dictionary<string, object?>(StringComparer.Ordinal)
@@ -38,21 +38,5 @@ internal class ValidatorFilter<T>(IValidator<T> validator, IOptions<ValidationOp
         );
 
         return result;
-
-        //var statusCode = StatusCodes.Status400BadRequest;
-        //var problemDetails = new ProblemDetails
-        //{
-        //    Status = statusCode,
-        //    Type = $"https://httpstatuses.io/{statusCode}",
-        //    Title = validationOptions.ValidationErrorTitleMessageFactory?.Invoke(context, errors) ?? "One or more validation errors occurred",
-        //    Instance = context.HttpContext.Request.Path,
-        //    Extensions = new Dictionary<string, object?>(StringComparer.Ordinal)
-        //    {
-        //        ["traceId"] = Activity.Current?.Id ?? context.HttpContext.TraceIdentifier,
-        //        ["errors"] = validationOptions.ErrorResponseFormat == ErrorResponseFormat.Default ? errors : errors.SelectMany(e => e.Value.Select(m => new { Name = e.Key, Message = m })).ToArray()
-        //    }
-        //};
-
-        //return TypedResults.Json(problemDetails, statusCode: statusCode, contentType: "application/problem+json; charset=utf-8");
     }
 }
