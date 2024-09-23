@@ -19,7 +19,7 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/marcominerva/MinimalHelpers.git</RepositoryUrl>
         <RepositoryBranch>master</RepositoryBranch>
-        <PackageReadmeFile>README.md</PackageReadmeFile>        
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
