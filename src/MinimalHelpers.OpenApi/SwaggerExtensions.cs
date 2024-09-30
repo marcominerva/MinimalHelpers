@@ -30,7 +30,7 @@ public static class SwaggerExtensions
     /// <returns>The <see cref="OpenApiParameter"/> object with the specified name.</returns>
     /// <exception cref="InvalidOperationException">The parameter with the specified name was not found.</exception>    
     public static OpenApiParameter GetByName(this IList<OpenApiParameter> parameters, string name)
-        => parameters.Single(p => p.Name == name);
+        => parameters.Single(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
     /// <summary>
     /// Gets by name the <see cref="OpenApiParameter"/> that is available in the <see cref="OpenApiOperation"/> parameters list.
