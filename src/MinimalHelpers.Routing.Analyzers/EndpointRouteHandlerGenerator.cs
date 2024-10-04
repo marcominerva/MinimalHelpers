@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace MinimalHelpers.Routing.Analyzers;
 
 [Generator]
-public class EndpointHandlerGenerator : IIncrementalGenerator
+public class EndpointRouteHandlerGenerator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
