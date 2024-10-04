@@ -11,11 +11,11 @@ public class ProductsHandler : IEndpointRouteHandlerBuilder
         endpoints.MapGet("/api/products/{id:guid}", Get);
 
         endpoints.MapPost("/api/products", Insert)
-            // MinimalHelpers.FluentValidation package performs validation with Data Annotations.
+            // MinimalHelpers.FluentValidation package performs validation using FluentValidation.
             .WithValidation<Product>();
 
         endpoints.MapPut("/api/products/{id:guid}", Update)
-            // MinimalHelpers.FluentValidation package performs validation with Data Annotations.
+            // MinimalHelpers.FluentValidation package performs validation using FluentValidation.
             .WithValidation<Product>();
 
         endpoints.MapDelete("/api/products/{id:guid}", Delete);
