@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using MinimalHelpers.Validation;
 
-namespace MinimalSample.Handlers;
+namespace MinimalSample.Endpoints;
 
-public class PeopleHandler : IEndpointRouteHandlerBuilder
+public class PeopleEndpoints : IEndpointRouteHandlerBuilder
 {
     public static void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
