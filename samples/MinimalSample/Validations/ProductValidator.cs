@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using MinimalSample.Handlers;
+using MinimalSample.Endpoints;
 
 namespace MinimalSample.Validations;
 

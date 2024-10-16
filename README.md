@@ -27,7 +27,7 @@ Create a class to hold your route handlers registration and make it implementing
 **.NET 6.0**
 
 ```csharp
-public class PeopleHandler : MinimalHelpers.Routing.IEndpointRouteHandlerBuilder
+public class PeopleEndpoints : MinimalHelpers.Routing.IEndpointRouteHandlerBuilder
 {
     public void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
@@ -45,7 +45,7 @@ public class PeopleHandler : MinimalHelpers.Routing.IEndpointRouteHandlerBuilder
 **.NET 7.0 or higher**
 
 ```csharp
-public class PeopleHandler : MinimalHelpers.Routing.IEndpointRouteHandlerBuilder
+public class PeopleEndpoints : MinimalHelpers.Routing.IEndpointRouteHandlerBuilder
 {
     public static void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
@@ -116,7 +116,7 @@ dotnet add package MinimalHelpers.Routing.Analyzers
 Create a class to hold your route handlers registration and make it implementing the `IEndpointRouteHandlerBuilder` interface:
 
 ```csharp
-public class PeopleHandler : IEndpointRouteHandlerBuilder
+public class PeopleEndpoints : IEndpointRouteHandlerBuilder
 {
     public static void MapEndpoints(IEndpointRouteBuilder endpoints)
     {

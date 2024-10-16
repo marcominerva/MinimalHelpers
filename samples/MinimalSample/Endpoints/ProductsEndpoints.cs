@@ -1,8 +1,8 @@
 ﻿using MinimalHelpers.FluentValidation;
 
-namespace MinimalSample.Handlers;
+namespace MinimalSample.Endpoints;
 
-public class ProductsHandler : IEndpointRouteHandlerBuilder
+public class ProductsEndpoints : IEndpointRouteHandlerBuilder
 {
     public static void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
