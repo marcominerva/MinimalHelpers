@@ -11,7 +11,7 @@ public static class RouteHandlerBuilderExtensions
 {
     /// <summary>
     /// Registers a <seealso cref="ValidatorFilter{T}"/> of type <typeparamref name="T"/> onto the route handler to validate the <typeparamref name="T"/> object.
-    /// </summary> 
+    /// </summary>
     /// <typeparam name="T">The type of the object to validate.</typeparam>
     /// <param name="builder">The <see cref="RouteHandlerBuilder"/> to add validation filter to.</param>
     /// <returns>A <see cref="RouteHandlerBuilder"/> that can be used to further customize the route handler.</returns>
