@@ -10,12 +10,13 @@ namespace MinimalHelpers.Validation;
 public static class RouteHandlerBuilderExtensions
 {
     /// <summary>
-    /// Adds to the <see cref="RouteHandlerBuilder"/> a filter that validates the <typeparamref name="T"/> object.
+    /// Registers a <seealso cref="ValidatorFilter{T}"/> of type <typeparamref name="T"/> onto the route handler to validate the <typeparamref name="T"/> object.
     /// </summary>
     /// <typeparam name="T">The type of the object to validate.</typeparam>
     /// <param name="builder">The <see cref="RouteHandlerBuilder"/> to add validation filter to.</param>
-    /// <returns>The <see cref="RouteHandlerBuilder"/> with the added validation filter.</returns>
+    /// <returns>A <see cref="RouteHandlerBuilder"/> that can be used to further customize the route handler.</returns>
     /// <remarks>The validation is performed with Data annotations, using <a href="https://github.com/DamianEdwards/MiniValidation">MiniValidation</a>.</remarks>
+    /// <seealso cref="ValidatorFilter{T}"/>
     public static RouteHandlerBuilder WithValidation<T>(this RouteHandlerBuilder builder) where T : class
     {
         builder.AddEndpointFilter<ValidatorFilter<T>>()

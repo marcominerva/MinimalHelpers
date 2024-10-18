@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using MinimalHelpers.OpenApi;
 using MinimalHelpers.Validation;
 
 namespace MinimalSample.Endpoints;
@@ -9,7 +10,12 @@ public class PeopleEndpoints : IEndpointRouteHandlerBuilder
     {
         endpoints.MapGet("/api/people", GetList);
 
-        endpoints.MapGet("/api/people/{id:guid}", Get);
+        endpoints.MapGet("/api/people/{id:guid}", Get)
+            //.ProducesProblem(StatusCodes.Status400BadRequest)
+            //.ProducesProblem(StatusCodes.Status401Unauthorized)
+            //.ProducesProblem(StatusCodes.Status403Forbidden)
+            //.ProducesProblem(StatusCodes.Status404NotFound);
+            .ProducesDefaultProblem(StatusCodes.Status400BadRequest, StatusCodes.Status401Unauthorized, StatusCodes.Status403Forbidden, StatusCodes.Status404NotFound);
 
         endpoints.MapPost("/api/people", Insert)
             // MinimalHelpers.Validation package performs validation with Data Annotations.

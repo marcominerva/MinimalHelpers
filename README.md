@@ -187,6 +187,26 @@ endpoints.MapPost("login", LoginAsync)
     });
  ```
 
+ ***Extension methods for RouteHandlerBuilder***
+
+ Often we have endpoints with multiple 4xx return values, each of which produces a `ProblemDetails` response:
+
+ ```csharp
+ endpoints.MapGet("/api/people/{id:guid}", Get)
+    .ProducesProblem(StatusCodes.Status400BadRequest)
+    .ProducesProblem(StatusCodes.Status401Unauthorized)
+    .ProducesProblem(StatusCodes.Status403Forbidden)
+    .ProducesProblem(StatusCodes.Status404NotFound);
+ ```
+
+ To avoid multiple calls to `ProducesProblem`, we can use the `ProducesDefaultProblem` extension method provided by the library:
+
+ ```csharp
+endpoints.MapGet("/api/people/{id:guid}", Get)
+    .ProducesDefaultProblem(StatusCodes.Status400BadRequest, StatusCodes.Status401Unauthorized,
+        StatusCodes.Status403Forbidden, StatusCodes.Status404NotFound);
+ ```
+
 ## MinimalHelpers.Validation
 
 [![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Validation)](https://www.nuget.org/packages/MinimalHelpers.Validation)
