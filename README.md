@@ -24,26 +24,6 @@ dotnet add package MinimalHelpers.Routing
 
 Create a class to hold your route handlers registration and make it implementing the `IEndpointRouteHandlerBuilder` interface:
 
-**.NET 6.0**
-
-```csharp
-public class PeopleEndpoints : MinimalHelpers.Routing.IEndpointRouteHandlerBuilder
-{
-    public void MapEndpoints(IEndpointRouteBuilder endpoints)
-    {
-        endpoints.MapGet("/api/people", GetList);
-        endpoints.MapGet("/api/people/{id:guid}", Get);
-        endpoints.MapPost("/api/people", Insert);
-        endpoints.MapPut("/api/people/{id:guid}", Update);
-        endpoints.MapDelete("/api/people/{id:guid}", Delete);
-    }
-
-    // ...
-}
-```
-
-**.NET 7.0 or higher**
-
 ```csharp
 public class PeopleEndpoints : MinimalHelpers.Routing.IEndpointRouteHandlerBuilder
 {
@@ -59,9 +39,6 @@ public class PeopleEndpoints : MinimalHelpers.Routing.IEndpointRouteHandlerBuild
     // ...
 }
 ```
-
-> **Note**
-Starting from .NET 7.0, the `IEndpointRouteHandlerBuilder` interface exposes the `MapEndpoints` method as static abstract, so it can be called without creating an instance of the handler.
 
 Call the `MapEndpoints()` extension method on the **WebApplication** object inside *Program.cs* before the `Run()` method invocation:
 
@@ -94,9 +71,7 @@ app.MapEndpoints(type =>
 > **Note**
 These methods rely on Reflection to scan the Assembly and find the classes that implement the `IEndpointRouteHandlerBuilder` interface. This can have a performance impact, especially in large projects. If you have performance issues, consider using the explicit registration method. Moreover, this solution is incompatibile with Native AOT.
 
-If you're working with .NET 7.0 or higher, the reccommended approach is to use the **MinimalHelpers.Routing.Analyzers** package, that provides a Source Generator for endpoints registration, as described later.
-
-## MinimalHelpers.Routing.Analyzers (.NET 7.0 or higher)
+## MinimalHelpers.Routing.Analyzers
 
 [![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Routing.Analyzers)](https://www.nuget.org/packages/MinimalHelpers.Routing.Analyzers)
 [![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Routing.Analyzers)](https://www.nuget.org/packages/MinimalHelpers.Routing.Analyzers)

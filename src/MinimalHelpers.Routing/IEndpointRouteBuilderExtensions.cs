@@ -34,21 +34,13 @@ public static class IEndpointRouteBuilderExtensions
 
         var endpointRouteHandlerBuilderTypes = assembly.GetTypes().Where(t =>
             t.IsClass && !t.IsAbstract && !t.IsGenericType
-#if NET6_0
-            && t.GetConstructor(Type.EmptyTypes) != null
-#endif
             && endpointRouteHandlerBuilderInterfaceType.IsAssignableFrom(t)
             && (predicate?.Invoke(t) ?? true));
 
         foreach (var endpointRouteHandlerBuilderType in endpointRouteHandlerBuilderTypes)
         {
-#if NET6_0
-            var builder = (IEndpointRouteHandlerBuilder)Activator.CreateInstance(endpointRouteHandlerBuilderType)!;
-            builder.MapEndpoints(endpoints);
-#else
             var mapEndpointsMethod = endpointRouteHandlerBuilderType.GetMethod(nameof(IEndpointRouteHandlerBuilder.MapEndpoints), BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)!;
             mapEndpointsMethod.Invoke(null, [endpoints]);
-#endif
         }
     }
 
@@ -61,7 +53,6 @@ public static class IEndpointRouteBuilderExtensions
     public static void MapEndpointsFromAssemblyContaining<T>(this IEndpointRouteBuilder endpoints, Func<Type, bool>? predicate = null) where T : class
         => MapEndpoints(endpoints, typeof(T).Assembly, predicate);
 
-#if NET7_0_OR_GREATER
     /// <summary>
     /// Registers all the route endpoints from the specified <see cref="IEndpointRouteHandlerBuilder"/> type.
     /// </summary>
@@ -70,5 +61,4 @@ public static class IEndpointRouteBuilderExtensions
     /// <seealso cref="IEndpointRouteBuilder" />
     public static void MapEndpoints<T>(this IEndpointRouteBuilder endpoints) where T : IEndpointRouteHandlerBuilder
         => T.MapEndpoints(endpoints);
-#endif
 }

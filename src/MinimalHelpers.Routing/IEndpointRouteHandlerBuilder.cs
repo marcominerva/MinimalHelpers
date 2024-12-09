@@ -13,8 +13,5 @@ public interface IEndpointRouteHandlerBuilder
     /// Maps route endpoints to the corresponding handlers.
     /// </summary>
     /// <param name="endpoints">The <see cref="IEndpointRouteBuilder" /> to add routes to.</param>
-#if NET7_0_OR_GREATER
-    static abstract
-#endif
-    void MapEndpoints(IEndpointRouteBuilder endpoints);
+    static abstract void MapEndpoints(IEndpointRouteBuilder endpoints);
 }
