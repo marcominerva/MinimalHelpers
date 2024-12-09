@@ -1,27 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
+﻿using Microsoft.OpenApi.Models;
 
 namespace MinimalHelpers.OpenApi;
 
 /// <summary>
-/// Provides extension methods for <see cref="SwaggerGenOptions"/>.
+/// Provides extension methods for OpenAPI objects.
 /// </summary>
-public static class SwaggerExtensions
+public static class OpenApiExtensions
 {
-    /// <summary>
-    /// Adds an <see cref="IOperationFilter"/> that fixes <see langword="swagger.json"/> generation for <see cref="IFormFile"/> and <see cref="IFormFileCollection"/> parameters when using the <see langword="WithOpenApi"/> extension method on endpoints.
-    /// </summary>
-    /// <param name="options">The <see cref="SwaggerGenOptions"/> that contains the options to generate Swagger documentation.</param>
-    /// <seealso cref="IFormFile"/>
-    /// <seealso cref="IFormFileCollection"/>
-    /// <seealso cref="SwaggerGenOptions"/>
-    /// <seealso cref="IOperationFilter"/>
-    [Obsolete("This method is no longer necessary and will be removed in a future version")]
-    public static void AddFormFile(this SwaggerGenOptions options)
-    {
-    }
-
     /// <summary>
     /// Gets the <see cref="OpenApiParameter"/> by name from the specified list of parameters.
     /// </summary>

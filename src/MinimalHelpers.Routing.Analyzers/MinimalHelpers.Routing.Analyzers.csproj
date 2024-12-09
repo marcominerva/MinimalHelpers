@@ -6,6 +6,8 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
         <Authors>Marco Minerva</Authors>
         <Company>Marco Minerva</Company>
         <Product>Routing Helpers for Minimal APIs</Product>

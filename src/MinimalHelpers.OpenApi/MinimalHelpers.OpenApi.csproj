@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net8.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -29,6 +29,14 @@
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
+    </ItemGroup>
+    
+    <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+    </ItemGroup>
+
     <ItemGroup>
         <None Include="..\..\Toolbox.png">
             <Pack>True</Pack>
@@ -37,7 +45,4 @@
         <None Include="..\..\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.9.0" />
-    </ItemGroup>
 </Project>

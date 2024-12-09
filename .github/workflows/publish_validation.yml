@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  NET_VERSION: '8.x'
+  NET_VERSION: '9.x'
   PROJECT_NAME: src/MinimalHelpers.Validation 
   PROJECT_FILE: MinimalHelpers.Validation.csproj
   TAG_NAME: validation

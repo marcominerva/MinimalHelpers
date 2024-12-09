@@ -1,10 +1,13 @@
 using FluentValidation;
 using MinimalHelpers.Validation;
+using TinyHelpers.AspNetCore.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApi(options =>
+{
+    options.AddDefaultResponse();
+});
 
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
@@ -28,8 +31,11 @@ app.UseStatusCodePages();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.MapOpenApi();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", builder.Environment.ApplicationName);
+    });
 }
 
 // Maps all the endpoints.
