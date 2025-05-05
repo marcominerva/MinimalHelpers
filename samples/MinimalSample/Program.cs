@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi(options =>
 {
-    options.AddDefaultResponse();
+    options.AddDefaultProblemDetailsResponse();
 });
 
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
