@@ -9,8 +9,8 @@
 	<ItemGroup>
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.4" />
-		<PackageReference Include="TinyHelpers.AspNetCore" Version="4.0.26" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.1" />
+		<PackageReference Include="TinyHelpers.AspNetCore" Version="4.0.27" />
 	</ItemGroup>
 
 	<ItemGroup>
