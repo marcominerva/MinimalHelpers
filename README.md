@@ -40,7 +40,7 @@ public class PeopleEndpoints : MinimalHelpers.Routing.IEndpointRouteHandlerBuild
 }
 ```
 
-Call the `MapEndpoints()` extension method on the **WebApplication** object inside *Program.cs* before invoking the `Run()` method;
+Call the `MapEndpoints()` extension method on the **WebApplication** object inside *Program.cs* before invoking the `Run()` method:
 
 ```csharp
 // using MinimalHelpers.Routing;
