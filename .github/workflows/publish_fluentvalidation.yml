@@ -1,5 +1,10 @@
 name: Publish FluentValidation Helpers on NuGet
- 
+
+permissions:
+  contents: read
+  packages: write
+  actions: write
+
 on:
   push:
     branches: [ master ]
