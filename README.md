@@ -11,11 +11,10 @@ A collection of helper libraries for Minimal API projects.
 [![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Routing)](https://www.nuget.org/packages/MinimalHelpers.Routing)
 [![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Routing)](https://www.nuget.org/packages/MinimalHelpers.Routing)
 
-A library that provides Routing helpers for Minimal API projects for automatic endpoints registration using Reflection.
-
+A library that provides routing helpers for Minimal API projects, enabling automatic endpoint registration using reflection.
 ### Installation
 
-The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Routing). Just search for *MinimalHelpers.Routing* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
+The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Routing). Search for *MinimalHelpers.Routing* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
 
 ```shell
 dotnet add package MinimalHelpers.Routing
@@ -23,7 +22,7 @@ dotnet add package MinimalHelpers.Routing
 
 ### Usage
 
-Create a class to hold your route handlers registration and have it implement the `IEndpointRouteHandlerBuilder` interface:
+Create a class to hold your route handler registrations and have it implement the `IEndpointRouteHandlerBuilder` interface:
 
 ```csharp
 public class PeopleEndpoints : MinimalHelpers.Routing.IEndpointRouteHandlerBuilder
@@ -41,7 +40,7 @@ public class PeopleEndpoints : MinimalHelpers.Routing.IEndpointRouteHandlerBuild
 }
 ```
 
-Call the `MapEndpoints()` extension method on the **WebApplication** object inside *Program.cs* before invoking the `Run()` method:
+Call the `MapEndpoints()` extension method on the **WebApplication** object in *Program.cs* before invoking the `Run()` method:
 
 ```csharp
 // using MinimalHelpers.Routing;
@@ -81,7 +80,7 @@ A library that provides a Source Generator for automatic endpoints registration 
 
 ### Installation
 
-The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Routing.Analyzers). Just search for *MinimalHelpers.Routing* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
+The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Routing.Analyzers). Search for *MinimalHelpers.Routing* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
 
 ```shell
 dotnet add package MinimalHelpers.Routing.Analyzers
@@ -89,7 +88,7 @@ dotnet add package MinimalHelpers.Routing.Analyzers
 
 ### Usage
 
-Create a class to hold your route handlers registration and have it implement the `IEndpointRouteHandlerBuilder` interface:
+Create a class to hold your route handler registrations and have it implement the `IEndpointRouteHandlerBuilder` interface:
 
 ```csharp
 public class PeopleEndpoints : IEndpointRouteHandlerBuilder
@@ -110,7 +109,7 @@ public class PeopleEndpoints : IEndpointRouteHandlerBuilder
 > **Note**
 You only need to use the **MinimalHelpers.Routing.Analyzers** package. With this Source Generator, the `IEndpointRouteHandlerBuilder` interface is auto-generated.
 
-Call the `MapEndpoints()` extension method on the **WebApplication** object inside *Program.cs* before the `Run()` method invocation:
+Call the `MapEndpoints()` extension method on the **WebApplication** object in *Program.cs* before the `Run()` method invocation:
 
 ```csharp
 app.MapEndpoints();
@@ -130,7 +129,7 @@ A library that provides OpenAPI helpers for Minimal API projects.
 
 ### Installation
 
-The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.OpenApi). Just search for *MinimalHelpers.OpenApi* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
+The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.OpenApi). Search for *MinimalHelpers.OpenApi* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
 
 ```shell
 dotnet add package MinimalHelpers.OpenApi
@@ -140,7 +139,7 @@ dotnet add package MinimalHelpers.OpenApi
 
 ***Extension methods for OpenApi***
 
-This library provides several extension methods that simplify the OpenAPI configuration in Minimal API projects. For example, it is possible to customize the description of a response using its status code:
+This library provides several extension methods that simplify the OpenAPI configuration in Minimal API projects. For example, you can customize the description of a response using its status code:
 
 ```csharp
 endpoints.MapPost("login", LoginAsync)
@@ -175,7 +174,7 @@ endpoints.MapPost("login", LoginAsync)
     .ProducesProblem(StatusCodes.Status404NotFound);
  ```
 
-To avoid multiple calls to `ProducesProblem`, use the `ProducesDefaultProblem` extension method provided by the library::
+To avoid multiple calls to `ProducesProblem`, use the `ProducesDefaultProblem` extension method provided by the library:
 
  ```csharp
 endpoints.MapGet("/api/people/{id:guid}", Get)
@@ -188,11 +187,11 @@ endpoints.MapGet("/api/people/{id:guid}", Get)
 [![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Validation)](https://www.nuget.org/packages/MinimalHelpers.Validation)
 [![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Validation)](https://www.nuget.org/packages/MinimalHelpers.Validation)
 
-A library that provides an Endpoint filter for Minimal API projects to perform validation with Data Annotations, using the <a href="https://github.com/DamianEdwards/MiniValidation">MiniValidation</a> library.
+A library that provides an endpoint filter for Minimal API projects to perform validation using Data Annotations and the <a href="https://github.com/DamianEdwards/MiniValidation">MiniValidation</a> library.
 
 ### Installation
 
-The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Validation). Just search for *MinimalHelpers.Validation* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
+The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Validation). Search for *MinimalHelpers.Validation* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
 
 ```shell
 dotnet add package MinimalHelpers.Validation
@@ -275,11 +274,11 @@ You can use the `ValidationErrorTitleMessageFactory`, for example, if you want t
 [![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.FluentValidation)](https://www.nuget.org/packages/MinimalHelpers.FluentValidation)
 [![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.FluentValidation)](https://www.nuget.org/packages/MinimalHelpers.FluentValidation)
 
-A library that provides an Endpoint filter for Minimal API projects to perform validation using <a href="https://fluentvalidation.net">FluentValidation</a>.
+A library that provides an endpoint filter for Minimal API projects to perform validation using <a href="https://fluentvalidation.net">FluentValidation</a>.
 
 ### Installation
 
-The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.FluentValidation). Just search for *MinimalHelpers.FluentValidation* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
+The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.FluentValidation). Search for *MinimalHelpers.FluentValidation* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
 
 ```shell
 dotnet add package MinimalHelpers.FluentValidation
@@ -368,4 +367,4 @@ You can use the `ValidationErrorTitleMessageFactory`, for example, if you want t
 
 **Contributing**
 
-The project is constantly evolving. Contributions are welcome! Please file issues or pull requests in the repository and they will be addressed as soon as possible.
+The project is constantly evolving. Contributions are welcome. Feel free to file issues and pull requests in the repository, and we'll address them as we can.
