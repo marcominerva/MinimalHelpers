@@ -31,6 +31,9 @@ public static class RouteHandlerBuilderExtensions
     /// </example>
     /// </remarks>
     /// <seealso cref="ValidatorFilter{TModel}"/>
+#if NET10_0_OR_GREATER
+    [Obsolete("This method is obsolete starting from .NET 10. Consider using built-in validation features of .NET 10 and later.")]
+#endif
     public static RouteHandlerBuilder WithValidation<TModel>(this RouteHandlerBuilder builder) where TModel : class
     {
         builder.AddEndpointFilter<ValidatorFilter<TModel>>()

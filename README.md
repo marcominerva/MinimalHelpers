@@ -137,31 +137,6 @@ dotnet add package MinimalHelpers.OpenApi
 
 ### Usage
 
-***Extension methods for OpenApi***
-
-This library provides several extension methods that simplify the OpenAPI configuration in Minimal API projects. For example, you can customize the description of a response using its status code:
-
-```csharp
-endpoints.MapPost("login", LoginAsync)
-    .AllowAnonymous()
-    .WithValidation<LoginRequest>()
-    .Produces<LoginResponse>(StatusCodes.Status200OK)
-    .Produces<LoginResponse>(StatusCodes.Status206PartialContent)
-    .Produces(StatusCodes.Status403Forbidden)
-    .ProducesValidationProblem()
-    .WithOpenApi(operation =>
-    {
-        operation.Summary = "Performs the login of a user";
-
-        operation.Response(StatusCodes.Status200OK).Description = "Login successful";
-        operation.Response(StatusCodes.Status206PartialContent).Description = "The user is logged in, but the password has expired and must be changed";
-        operation.Response(StatusCodes.Status400BadRequest).Description = "Incorrect username and/or password";
-        operation.Response(StatusCodes.Status403Forbidden).Description = "The user was blocked due to too many failed logins";
-
-        return operation;
-    });
- ```
-
  ***Extension methods for RouteHandlerBuilder***
 
  Often, endpoints have multiple 4xx return values, each producing a `ProblemDetails` response:
@@ -181,93 +156,6 @@ endpoints.MapGet("/api/people/{id:guid}", Get)
     .ProducesDefaultProblem(StatusCodes.Status400BadRequest, StatusCodes.Status401Unauthorized,
         StatusCodes.Status403Forbidden, StatusCodes.Status404NotFound);
  ```
-
-## MinimalHelpers.Validation
-
-[![Nuget](https://img.shields.io/nuget/v/MinimalHelpers.Validation)](https://www.nuget.org/packages/MinimalHelpers.Validation)
-[![Nuget](https://img.shields.io/nuget/dt/MinimalHelpers.Validation)](https://www.nuget.org/packages/MinimalHelpers.Validation)
-
-A library that provides an endpoint filter for Minimal API projects to perform validation using Data Annotations and the <a href="https://github.com/DamianEdwards/MiniValidation">MiniValidation</a> library.
-
-### Installation
-
-The library is available on [NuGet](https://www.nuget.org/packages/MinimalHelpers.Validation). Search for *MinimalHelpers.Validation* in the **Package Manager GUI** or run the following command in the **.NET CLI**:
-
-```shell
-dotnet add package MinimalHelpers.Validation
-```
-
-### Usage
-
-Decorate a class with attributes to define the validation rules:
-
-```csharp
-using System.ComponentModel.DataAnnotations;
-
-public class Person
-{
-    [Required]
-    [MaxLength(20)]
-    public string? FirstName { get; set; }
-
-    [Required]
-    [MaxLength(20)]
-    public string? LastName { get; set; }
-
-    [MaxLength(50)]
-    public string? City { get; set; }
-}
-```
-
-Use the `WithValidation<TModel>()` extension method to enable the validation filter:
-
-```csharp
-using MinimalHelpers.Validation;
-
-app.MapPost("/api/people", (Person person) =>
-    {
-        // ...
-    })
-    .WithValidation<Person>();
-```
-
-If the validation fails, the response will be a `400 Bad Request` with a `ValidationProblemDetails` object containing the validation errors, for example:
-
-```json
-{
-  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
-  "title": "One or more validation errors occurred",
-  "status": 400,
-  "instance": "/api/people",
-  "traceId": "00-009c0162ba678cae2ee391815dbbb59d-0a3a5b0c16d053e6-00",
-  "errors": {
-    "FirstName": [
-      "The field FirstName must be a string or array type with a maximum length of '20'."
-    ],
-    "LastName": [
-      "The LastName field is required."
-    ]
-  }
-}
-```
-
-To customize validation, use the `ConfigureValidation` extension method:
-
-```csharp
-using MinimalHelpers.Validation;
-
-builder.Services.ConfigureValidation(options =>
-{
-    // If you want to get errors as a list instead of a dictionary.
-    options.ErrorResponseFormat = ErrorResponseFormat.List;
-
-    // The default is "One or more validation errors occurred"
-    options.ValidationErrorTitleMessageFactory =
-        (context, errors) => $"There was {errors.Values.Sum(v => v.Length)} error(s)";
-});
-```
-
-You can use the `ValidationErrorTitleMessageFactory`, for example, if you want to localize the `title` property of the response using a RESX file.
 
 ## MinimalHelpers.FluentValidation
 
@@ -291,13 +179,13 @@ Create a class that extends AbstractValidator<TModel> and define the validation 
 ```csharp
 using FluentValidation;
 
-public record class Product(string Name, string Description, double UnitPrice);
+public record class Product(string? Name, string? Description, double? UnitPrice);
 
 public class ProductValidator : AbstractValidator<Product>
 {
     public ProductValidator()
     {
-        RuleFor(p => p.Name).NotEmpty().MaximumLength(50).EmailAddress();
+        RuleFor(p => p.Name).NotEmpty().MaximumLength(50);
         RuleFor(p => p.Description).MaximumLength(500);
         RuleFor(p => p.UnitPrice).GreaterThan(0);
     }
