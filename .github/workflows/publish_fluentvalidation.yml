@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 env:
-  NET_VERSION: '9.x'
+  NET_VERSION: '10.x'
   PROJECT_NAME: src/MinimalHelpers.FluentValidation 
   PROJECT_FILE: MinimalHelpers.FluentValidation.csproj
   TAG_NAME: fluentvalidation
