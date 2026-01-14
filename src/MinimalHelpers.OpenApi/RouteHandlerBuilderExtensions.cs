@@ -16,6 +16,7 @@ public static class RouteHandlerBuilderExtensions
     /// <param name="builder">The <see cref="RouteHandlerBuilder"/>.</param>
     /// <param name="statusCodes">The list of status codes to be added as <see cref="ProblemDetails"/> responses.</param>
     /// <returns>The <see cref="RouteHandlerBuilder"/> with the new status codes responses.</returns>
+    [Obsolete("This method will be removed in future versions. Use the ProducesDefaultProblem method that is available in the TinyHelpers.AspNetCoore library instead.")]
     public static RouteHandlerBuilder ProducesDefaultProblem(this RouteHandlerBuilder builder, params int[] statusCodes)
     {
         foreach (var statusCode in statusCodes)
