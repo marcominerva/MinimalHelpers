@@ -18,6 +18,5 @@
   <Folder Name="/src/Validation/">
     <Project Path="src/MinimalHelpers.FluentValidation/MinimalHelpers.FluentValidation.csproj" />
     <Project Path="src/MinimalHelpers.Validation.Abstractions/MinimalHelpers.Validation.Abstractions.csproj" />
-    <Project Path="src/MinimalHelpers.Validation/MinimalHelpers.Validation.csproj" />
   </Folder>
 </Solution>
