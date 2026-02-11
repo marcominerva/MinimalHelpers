@@ -1,5 +1,6 @@
 # Minimal APIs Helpers
 
+[![CodeQL](https://github.com/marcominerva/MinimalHelpers/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/marcominerva/MinimalHelpers/actions/workflows/github-code-scanning/codeql)
 [![Lint Code Base](https://github.com/marcominerva/MinimalHelpers/actions/workflows/linter.yml/badge.svg)](https://github.com/marcominerva/MinimalHelpers/actions/workflows/linter.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/marcominerva/MinimalHelpers/blob/master/LICENSE)
 
