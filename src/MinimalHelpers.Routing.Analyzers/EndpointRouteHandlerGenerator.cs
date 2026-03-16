@@ -1,5 +1,6 @@
 ﻿using System.Collections.Immutable;
 using System.Text;
+using System.Threading;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -19,7 +20,8 @@ public class EndpointRouteHandlerGenerator : IIncrementalGenerator
             context.AddSource("IEndpointRouteHandlerBuilder.g.cs", SourceText.From(@interface, Encoding.UTF8));
         });
 
-        var endpointClasses = context.SyntaxProvider
+        // Find classes that implement IEndpointRouteHandlerBuilder in the current compilation.
+        var currentCompilationEndpointClasses = context.SyntaxProvider
             .CreateSyntaxProvider(
                 predicate: static (node, _) => node is ClassDeclarationSyntax { BaseList: not null },
                 transform: static (context, token) =>
@@ -51,10 +53,66 @@ public class EndpointRouteHandlerGenerator : IIncrementalGenerator
             .Where(static symbol => symbol is not null)
             .Collect();
 
-        context.RegisterSourceOutput(endpointClasses, Execute!);
+        // Find classes from referenced assemblies via duck-typing: a public, non-abstract, non-generic
+        // class with a public static void MapEndpoints(IEndpointRouteBuilder) method.
+        // Duck-typing is necessary because the generated IEndpointRouteHandlerBuilder interface is
+        // internal and therefore not visible across assembly boundaries.
+        var externalEndpointClasses = context.CompilationProvider
+            .SelectMany(static (compilation, token) =>
+            {
+                var results = ImmutableArray.CreateBuilder<INamedTypeSymbol>();
+
+                foreach (var reference in compilation.References)
+                {
+                    token.ThrowIfCancellationRequested();
+
+                    if (compilation.GetAssemblyOrModuleSymbol(reference) is IAssemblySymbol assemblySymbol)
+                    {
+                        CollectEndpointTypesFromNamespace(assemblySymbol.GlobalNamespace, results, token);
+                    }
+                }
+
+                return results.ToImmutable();
+            })
+            .Collect();
+
+        var allEndpointClasses = currentCompilationEndpointClasses.Combine(externalEndpointClasses);
+
+        context.RegisterSourceOutput(allEndpointClasses, Execute);
     }
 
-    private static void Execute(SourceProductionContext context, ImmutableArray<INamedTypeSymbol?> classSymbols)
+    private static void CollectEndpointTypesFromNamespace(INamespaceSymbol namespaceSymbol, ImmutableArray<INamedTypeSymbol>.Builder results, CancellationToken token)
+    {
+        foreach (var type in namespaceSymbol.GetTypeMembers())
+        {
+            token.ThrowIfCancellationRequested();
+
+            if (type.TypeKind == TypeKind.Class && !type.IsAbstract && !type.IsGenericType
+                && type.DeclaredAccessibility == Accessibility.Public
+                && HasMapEndpointsMethod(type))
+            {
+                results.Add(type);
+            }
+        }
+
+        foreach (var nestedNamespace in namespaceSymbol.GetNamespaceMembers())
+        {
+            CollectEndpointTypesFromNamespace(nestedNamespace, results, token);
+        }
+    }
+
+    private static bool HasMapEndpointsMethod(INamedTypeSymbol typeSymbol)
+        => typeSymbol.GetMembers("MapEndpoints")
+            .OfType<IMethodSymbol>()
+            .Any(static m =>
+                m.IsStatic &&
+                m.DeclaredAccessibility == Accessibility.Public &&
+                m.ReturnsVoid &&
+                m.Parameters.Length == 1 &&
+                m.Parameters[0].Type.Name == "IEndpointRouteBuilder" &&
+                m.Parameters[0].Type.ContainingNamespace?.ToDisplayString() == "Microsoft.AspNetCore.Routing");
+
+    private static void Execute(SourceProductionContext context, (ImmutableArray<INamedTypeSymbol?> CurrentCompilation, ImmutableArray<INamedTypeSymbol> External) input)
     {
         //#if DEBUG
         //        if (!Debugger.IsAttached)
@@ -63,7 +121,11 @@ public class EndpointRouteHandlerGenerator : IIncrementalGenerator
         //        }
         //#endif
 
-        var validClasses = classSymbols.Where(static symbol => symbol is not null).Cast<INamedTypeSymbol>().ToArray();
+        var validClasses = input.CurrentCompilation
+            .Where(static symbol => symbol is not null)
+            .Cast<INamedTypeSymbol>()
+            .Concat(input.External)
+            .ToArray();
 
         //if (validClasses.Length == 0)
         //{
@@ -80,7 +142,7 @@ public class EndpointRouteHandlerGenerator : IIncrementalGenerator
             /// <summary>
             /// Provides extension methods for <see cref="IEndpointRouteBuilder" /> to add route handlers.
             /// </summary>
-            public static class EndpointRouteBuilderExtensions
+            internal static class EndpointRouteBuilderExtensions
             {
                 /// <summary>
                 /// Automatically registers all the route endpoints defined in classes that implement the <see cref="IEndpointRouteHandlerBuilder "/> interface.
@@ -122,7 +184,7 @@ public class EndpointRouteHandlerGenerator : IIncrementalGenerator
             /// <summary>
             /// Defines a contract for a class that holds one or more route handlers that must be registered by the application.
             /// </summary>
-            public interface IEndpointRouteHandlerBuilder
+            internal interface IEndpointRouteHandlerBuilder
             {
                 /// <summary>
                 /// Maps route endpoints to the corresponding handlers.
